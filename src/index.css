@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #2C2C2C;
+  --color-gold: #D4AF37;
+  --color-gold-light: #eadd9c;
+  --color-cream: #F5F5DC;
+  --color-sage: #8B9D83;
+  --color-light-gray: #E8E8E8;
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-charcoal bg-white antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Hide scrollbar for clean look but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes envelopeOpen {
+  0%, 100% { transform: rotateX(0deg); }
+  50% { transform: rotateX(180deg); }
+}
+
+@keyframes rotateBorder {
+  to { background-position: 200% 0; }
+}
+
+@keyframes starShine {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(212,175,55,0.5)); }
+  50% { filter: drop-shadow(0 0 8px rgba(212,175,55,0.9)); }
+}
+
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 
+      0 12px 40px rgba(212,175,55,0.4),
+      0 0 20px rgba(212,175,55,0.3);
+  }
+  50% {
+    box-shadow: 
+      0 12px 40px rgba(212,175,55,0.6),
+      0 0 40px rgba(212,175,55,0.6);
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(212,175,55,0.5));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 16px rgba(212,175,55,0.8));
+  }
+}
+
+@keyframes floatingPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 8px 32px rgba(212,175,55,0.4),
+      0 0 60px rgba(212,175,55,0.3);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 
+      0 12px 40px rgba(212,175,55,0.5),
+      0 0 80px rgba(212,175,55,0.5);
+  }
+}
+
+@keyframes pulseUnfavorited {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes heartBurst {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow: 
+      0 4px 15px rgba(201, 169, 96, 0.3),
+      0 0 0 0 rgba(201, 169, 96, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 6px 20px rgba(201, 169, 96, 0.4),
+      0 0 0 8px rgba(201, 169, 96, 0);
+  }
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1.05) translate(0,0); }
+  100% { transform: scale(1.1) translate(-1%, -1%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(-5px); }
+  50% { transform: translateY(5px); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes patternSlide {
+  from { transform: translateX(0); }
+  to { transform: translateX(40px); }
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 
+      0 8px 30px rgba(212, 175, 55, 0.4),
+      inset 0 2px 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 
+      0 12px 40px rgba(212, 175, 55, 0.6),
+      inset 0 2px 10px rgba(255, 255, 255, 0.7);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+  50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.9); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(200%) skewX(-20deg); }
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes shineSweep {
+  0%, 20% { transform: translateX(-150%) skewX(-20deg); }
+  80%, 100% { transform: translateX(300%) skewX(-20deg); }
+}
+
+@keyframes phoneRing {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
+  20%, 40%, 60%, 80% { transform: rotate(10deg); }
+}
+
+@keyframes envelopeFlip {
+  0% { transform: scale(1) rotate(0); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes pinBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes chatPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(212,175,55,0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(212,175,55,0.6); }
+}
+
+@keyframes badgeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes avatarPulse {
+  0%, 100% { border-color: rgba(255,255,255,1); }
+  50% { border-color: rgba(212,175,55,1); }
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes typingDot {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; box-shadow: 0 0 20px rgba(212,175,55,0.5); }
+}
+
+@keyframes timePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
