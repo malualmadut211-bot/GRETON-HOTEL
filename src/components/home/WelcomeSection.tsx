@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { animate, onScroll, stagger, splitText } from "animejs";
 
 export default function WelcomeSection() {
+  useEffect(() => {
+    // a) Split text — words fly in as you scroll down
+    const headingSplit = splitText('.about-heading', { words: true });
+    animate(headingSplit.words, {
+      opacity: [0, 1],
+      y: [40, 0],
+      delay: stagger(80),
+      autoplay: onScroll({ sync: 'play' }),
+    });
+
+    // b) Paragraph lines fade in staggered
+    const bodySplit = splitText('.about-body', { lines: true });
+    animate(bodySplit.lines, {
+      opacity: [0, 1],
+      x: [-20, 0],
+      delay: stagger(100),
+      autoplay: onScroll({ sync: 'play' }),
+    });
+  }, []);
+
   return (
     <section className="bg-[#FAFAFA] py-[80px] md:py-[120px] px-6 md:px-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
@@ -17,22 +38,14 @@ export default function WelcomeSection() {
              transition={{ duration: 0.8, ease: "easeOut" }}
              className="h-[4px] bg-gradient-to-r from-gold to-transparent mb-6"
           />
-          <motion.h2 
-            initial={{ opacity: 0, x: -50, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-20%" }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="font-serif text-[clamp(2rem,5vw,3rem)] font-bold text-[#1A1A1A] leading-[1.2] mb-6"
+          <h2 
+            className="about-heading font-serif text-[clamp(2rem,5vw,3rem)] font-bold text-[#1A1A1A] leading-[1.2] mb-6"
           >
             Welcome to Greton Hotel
-          </motion.h2>
+          </h2>
 
-          <motion.p 
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-20%" }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="font-sans text-[1.125rem] text-[#4A4A4A] leading-[1.8] max-w-[600px] mb-8 font-light"
+          <p 
+            className="about-body font-sans text-[1.125rem] text-[#4A4A4A] leading-[1.8] max-w-[600px] mb-8 font-light"
           >
             Nestled in the vibrant heart of Nairobi's Central Business District, 
             Greton Hotel seamlessly blends contemporary luxury with authentic Kenyan 
@@ -40,7 +53,7 @@ export default function WelcomeSection() {
             the Maasai Market's vibrant crafts and just 2km from Nairobi's historic 
             Train Station. Whether you're here for business or leisure, experience 
             a sanctuary of comfort where modern amenities meet timeless elegance.
-          </motion.p>
+          </p>
 
           <motion.div
              initial={{ opacity: 0, x: -30 }}
