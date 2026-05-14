@@ -47,19 +47,19 @@ export function BeverageMenu() {
                onClick={() => setActiveTab(cat)}
                className={cn(
                  "px-[30px] py-[15px] font-sans text-[20px] uppercase tracking-[0.15em] transition-all duration-300 relative shrink-0",
-                 isActive ? "text-gold font-bold" : "text-white/90/60 hover:text-white/90 hover:-translate-y-1"
-               )}
-             >
-               {cat}
-               {isActive && (
-                 <motion.div 
-                   layoutId="beverageUnderline"
-                   className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-gold to-transparent shadow-[0_0_15px_rgba(212,175,55,0.6)]"
-                 />
-               )}
-             </button>
-           )
-         })}
+                 isActive ? "text-gold font-bold" : "text-white/60 hover:text-white/90 hover:-translate-y-1"
+                )}
+              >
+                {cat}
+                {isActive && (
+                  <motion.div 
+                    layoutId="beverageUnderline"
+                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-gold to-transparent shadow-[0_0_15px_rgba(212,175,55,0.6)]"
+                  />
+                )}
+              </button>
+            )
+          })}
       </div>
 
       {/* Grid */}
@@ -77,7 +77,7 @@ export function BeverageMenu() {
                 exit={{ opacity: 0, scale: 0.9, y: 30, filter: "blur(10px)" }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 whileHover={{ y: -10, scale: 1.03 }}
-                className="bg-transparent-[10px] border border-gold/15 rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-400 group cursor-pointer"
+                className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-400 group cursor-pointer"
               >
                 {/* Image / Mask Pour simulation */}
                 <div className="h-[200px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] p-5 relative overflow-hidden">
@@ -92,14 +92,14 @@ export function BeverageMenu() {
                      {/* Placeholder shape for the drink illustration */}
                      <svg viewBox="0 0 100 100" className="w-[80px] h-full opacity-80 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">
                        <path d="M20 10 L80 10 L60 50 L55 90 L45 90 L40 50 Z" fill="none" stroke="#D4AF37" strokeWidth="2" />
-                       <path d="M25 15 L75 15 L60 45 L40 45 Z" fill="#rgba(212,175,55,0.5)" />
+                       <path d="M25 15 L75 15 L60 45 L40 45 Z" fill="rgba(212,175,55,0.5)" />
                      </svg>
                    </div>
                 </div>
 
                 <div className="p-6 bg-gradient-to-b from-transparent to-black/20">
                    <h3 className="font-serif text-[24px] text-gold font-bold mb-3 capitalize tracking-[0.05em] group-hover:text-[#FFD700] transition-colors">{item.name}</h3>
-                   <p className="font-sans text-[15px] text-white/90/80 italic line-clamp-3 group-hover:line-clamp-none transition-all">{item.desc}</p>
+                   <p className="font-sans text-[15px] text-white/70 italic line-clamp-3 group-hover:line-clamp-none transition-all">{item.desc}</p>
                    
                    <div className="absolute top-[220px] right-6 font-sans text-[22px] font-bold text-[#FFD700] bg-gold/20 px-4 py-1.5 rounded-full backdrop-blur-sm group-hover:bg-gold/40 shadow-sm group-hover:scale-110 transition-all">
                       ${item.price}

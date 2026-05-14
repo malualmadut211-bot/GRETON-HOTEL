@@ -15,10 +15,10 @@ export function DiningExperience() {
              viewport={{ once: true, margin: "-20%" }}
              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h4 className="font-sans text-[1.2rem] text-[#8D6E63] uppercase tracking-[0.2em] mb-5">
+            <h4 className="font-sans text-[1.2rem] text-gold uppercase tracking-[0.2em] mb-5">
               The Atmosphere
             </h4>
-            <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] text-[#3E2723] leading-[1.2] mb-8 tracking-[-0.01em]">
+            <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] text-white leading-[1.2] mb-8 tracking-[-0.01em]">
               Indoor & Outdoor Seating
             </h2>
           </motion.div>
@@ -29,7 +29,7 @@ export function DiningExperience() {
              viewport={{ once: true }}
              transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <p className="font-serif text-[1.125rem] leading-[1.8] text-[#5D4037] max-w-[600px] mb-10">
+            <p className="font-serif text-[1.125rem] leading-[1.8] text-white/90 max-w-[600px] mb-10">
               <span className="text-[1.25rem]">Whether you prefer the intimate warmth of our dining room or the breezy elegance of our terrace, we provide the perfect setting.</span> Our diverse dining areas are designed to cater to your mood, from romantic dinners to celebratory gatherings.
             </p>
           </motion.div>
@@ -51,8 +51,8 @@ export function DiningExperience() {
                      <feat.icon size={24} className="text-white" />
                    </div>
                    <div className="ml-4">
-                     <h5 className="font-bold text-[#3E2723] text-[1.1rem]">{feat.name}</h5>
-                     <p className="text-[0.95rem] text-[#6D4C41] leading-[1.5]">{feat.desc}</p>
+                     <h5 className="font-bold text-white text-[1.1rem]">{feat.name}</h5>
+                     <p className="text-[0.95rem] text-white/70 leading-[1.5]">{feat.desc}</p>
                    </div>
                 </motion.div>
              ))}

@@ -33,8 +33,8 @@ export function ReservationForm() {
           onFocus={() => setFocusedField(name)}
           onBlur={() => setFocusedField(null)}
           className={cn(
-            "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-transparent font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none",
-            isFocused ? "border-gold bg-transparent border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]",
+            "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-white/5 backdrop-blur-md font-sans text-[16px] text-white transition-all duration-300 outline-none",
+            isFocused ? "border-gold border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-white/20",
             hasValue && !isFocused && "border-green-500 bg-green-500/5"
           )}
           {...props}
@@ -73,8 +73,8 @@ export function ReservationForm() {
          transition={{ duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
          className="text-center"
       >
-        <h2 className="font-serif text-[clamp(2.5rem,5vw,3.8rem)] text-[#3E2723] mb-5">Reserve Your Experience</h2>
-        <p className="font-sans text-[1.125rem] text-[#8D6E63] tracking-[0.05em] mb-[60px]">Secure your table in moments</p>
+        <h2 className="font-serif text-[clamp(2.5rem,5vw,3.8rem)] text-white mb-5">Reserve Your Experience</h2>
+        <p className="font-sans text-[1.125rem] text-gold tracking-[0.05em] mb-[60px]">Secure your table in moments</p>
       </motion.div>
 
       <motion.div 
@@ -112,8 +112,8 @@ export function ReservationForm() {
                       onFocus={() => setFocusedField("time")}
                       onBlur={() => setFocusedField(null)}
                       className={cn(
-                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-transparent font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none appearance-none cursor-pointer",
-                        focusedField === "time" ? "border-gold bg-transparent border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
+                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-white/5 backdrop-blur-md font-sans text-[16px] text-white transition-all duration-300 outline-none appearance-none cursor-pointer",
+                        focusedField === "time" ? "border-gold border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-white/20"
                       )}
                       required
                     >
@@ -134,8 +134,8 @@ export function ReservationForm() {
                       onFocus={() => setFocusedField("party")}
                       onBlur={() => setFocusedField(null)}
                       className={cn(
-                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-transparent font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none appearance-none cursor-pointer",
-                        focusedField === "party" ? "border-gold bg-transparent border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
+                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-white/5 backdrop-blur-md font-sans text-[16px] text-white transition-all duration-300 outline-none appearance-none cursor-pointer",
+                        focusedField === "party" ? "border-gold border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-white/20"
                       )}
                       required
                     >

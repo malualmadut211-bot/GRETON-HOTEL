@@ -62,7 +62,7 @@ export function CustomerReviews() {
   };
 
   return (
-    <section className="bg-transparent bg-[linear-gradient(135deg,#F5F5DC_0%,#F0E6D2_100%)] overflow-hidden py-[120px]">
+    <section className="bg-transparent overflow-hidden py-[120px]">
       <motion.div 
          initial={{ opacity: 0, y: -30 }}
          whileInView={{ opacity: 1, y: 0 }}
@@ -70,8 +70,8 @@ export function CustomerReviews() {
          transition={{ duration: 0.8 }}
          className="text-center px-4"
       >
-        <h2 className="font-serif text-[clamp(2.5rem,5vw,4rem)] text-[#3E2723] mb-5 drop-shadow-sm">What Our Guests Say</h2>
-        <p className="font-sans text-[1.125rem] text-[#8D6E63] uppercase tracking-[0.1em] mb-[60px]">Real experiences from real diners</p>
+        <h2 className="font-serif text-[clamp(2.5rem,5vw,4rem)] text-white mb-5 drop-shadow-sm">What Our Guests Say</h2>
+        <p className="font-sans text-[1.125rem] text-gold uppercase tracking-[0.1em] mb-[60px]">Real experiences from real diners</p>
       </motion.div>
 
       <div 
@@ -94,9 +94,9 @@ export function CustomerReviews() {
               transition={{ duration: 0.7, delay: i * 0.15 }}
               onClick={() => scrollToIndex(i)}
               className={cn(
-                "w-[420px] shrink-0 snap-center bg-transparent border border-white/20 rounded-[20px] p-[40px_35px] relative transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] cursor-pointer group",
+                "w-[420px] shrink-0 snap-center bg-white/5 backdrop-blur-xl border border-white/20 rounded-[20px] p-[40px_35px] relative transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] cursor-pointer group shadow-[0_8px_32px_rgba(0,0,0,0.2)]",
                 isActive ? "scale-105 z-10 opacity-100 shadow-[0_20px_60px_rgba(212,175,55,0.25)] border-2 border-gold/30" 
-                         : "scale-95 z-0 opacity-70 shadow-[0_10px_40px_rgba(0,0,0,0.1)] border-2 border-transparent hover:opacity-100 hover:scale-[0.98]"
+                         : "scale-95 z-0 opacity-70 border-2 border-transparent hover:opacity-100 hover:scale-[0.98]"
               )}
             >
               {/* Quote Mark */}
@@ -119,7 +119,7 @@ export function CustomerReviews() {
                    ))}
                 </div>
 
-                <p className="font-serif text-[18px] leading-[1.7] text-[#3E2723] mb-6 line-clamp-6 flex-1">
+                <p className="font-serif text-[18px] leading-[1.7] text-white/90 mb-6 line-clamp-6 flex-1">
                   "{review.text}"
                 </p>
 
@@ -132,8 +132,8 @@ export function CustomerReviews() {
                     {review.name.charAt(0)}
                   </div>
                   <div>
-                    <h5 className="font-bold text-[#3E2723] text-[16px]">{review.name}</h5>
-                    <p className="text-[14px] text-[#8D6E63]">{review.date}</p>
+                    <h5 className="font-bold text-white text-[16px]">{review.name}</h5>
+                    <p className="text-[14px] text-white/60">{review.date}</p>
                   </div>
                 </div>
               </div>

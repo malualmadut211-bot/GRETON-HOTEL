@@ -50,7 +50,7 @@ export function MenuShowcase() {
                   onClick={() => setActiveTab(tab)}
                   className={cn(
                     "px-4 md:px-8 py-3 text-[14px] md:text-[18px] uppercase tracking-[0.1em] transition-all duration-300 relative border-b-3 h-full flex items-center shrink-0",
-                    isActive ? "text-gold font-semibold border-transparent" : "text-[#6D4C41] border-transparent hover:text-gold hover:border-gold/30 hover:-translate-y-0.5"
+                    isActive ? "text-gold font-semibold border-transparent" : "text-white/60 border-transparent hover:text-gold hover:border-gold/30 hover:-translate-y-0.5"
                   )}
                 >
                   {isActive && (
@@ -86,7 +86,7 @@ export function MenuShowcase() {
                   exit={{ opacity: 0, scale: 0.95, filter: "blur(5px)" }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
                   whileHover={{ y: -8, scale: 1.02, boxShadow: "0 12px 40px rgba(212,175,55,0.25)" }}
-                  className="bg-transparent border border-[#6D4C41]/10 rounded-xl p-[30px] relative overflow-hidden group transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-white/20 hover:border-gold/40"
+                  className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-[30px] relative overflow-hidden group transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-white/15 hover:border-gold/40 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
                 >
                   {/* Hover bg sweep */}
                   <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.05),transparent)] -translate-x-[100%] group-hover:animate-[shimmerSweep_1.5s_infinite]" />
@@ -98,8 +98,8 @@ export function MenuShowcase() {
 
                   {/* Content */}
                   <div className="relative z-10">
-                    <h3 className="font-serif text-[24px] font-semibold text-[#3E2723] group-hover:text-gold transition-colors mb-2">{item.name}</h3>
-                    <p className="font-sans text-[15px] leading-[1.6] text-[#6D4C41] line-clamp-3">{item.desc}</p>
+                    <h3 className="font-serif text-[24px] font-semibold text-white group-hover:text-gold transition-colors mb-2">{item.name}</h3>
+                    <p className="font-sans text-[15px] leading-[1.6] text-white/70 line-clamp-3">{item.desc}</p>
                     
                     {/* Dietary Icons */}
                     <div className="mt-3 flex gap-2">

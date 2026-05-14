@@ -2,7 +2,7 @@ import React from "react";
 import { DiningHero } from "@/components/dining/DiningHero";
 import { DiningIntro } from "@/components/dining/DiningIntro";
 import { MenuShowcase } from "@/components/dining/MenuShowcase";
-import { SignatureDishes } from "@/components/dining/SignatureDishes";
+import CulinaryHighlights from "@/components/dining/CulinaryHighlights";
 import { DiningExperience } from "@/components/dining/DiningExperience";
 import { BeverageMenu } from "@/components/dining/BeverageMenu";
 import { ReservationForm } from "@/components/dining/ReservationForm";
@@ -14,7 +14,7 @@ export default function Dining() {
       <DiningHero />
       <DiningIntro />
       <MenuShowcase />
-      <SignatureDishes />
+      <CulinaryHighlights />
       <DiningExperience />
       <BeverageMenu />
       <ReservationForm />

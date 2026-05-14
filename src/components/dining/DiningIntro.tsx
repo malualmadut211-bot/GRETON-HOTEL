@@ -7,11 +7,11 @@ export function DiningIntro() {
   const yImage = useTransform(scrollYProgress, [0, 1], ["0px", "-250px"]);
 
   return (
-    <section className="bg-transparent min-h-[700px] flex flex-col lg:flex-row bg-[#FCFBF8] overflow-hidden">
+    <section className="bg-transparent min-h-[700px] flex flex-col lg:flex-row overflow-hidden">
       {/* Left Column - Text */}
       <motion.div 
         style={{ y: yText }}
-        className="w-full lg:w-1/2 p-[60px] lg:p-[100px_80px] flex flex-col justify-center"
+        className="w-full lg:w-1/2 p-[60px] lg:p-[100px_80px] flex flex-col justify-center bg-white/5 backdrop-blur-xl border-r border-white/10"
       >
         <motion.div
            initial={{ opacity: 0, x: -100, filter: "blur(15px)" }}
@@ -19,7 +19,7 @@ export function DiningIntro() {
            viewport={{ once: true, margin: "-20%" }}
            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-serif text-[clamp(2.5rem,5vw,4rem)] text-[#3E2723] mb-4">
+          <h2 className="font-serif text-[clamp(2.5rem,5vw,4rem)] text-white mb-4">
             Maison Royale
           </h2>
           {/* Ornamental divider SVG */}
@@ -50,7 +50,7 @@ export function DiningIntro() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-serif text-[18px] leading-[1.8] text-[#5D4037] max-w-[560px]"
+            className="font-serif text-[18px] leading-[1.8] text-white/90 max-w-[560px]"
           >
             <span className="float-left text-[50px] leading-[0.8] pr-2 text-gold font-bold">A</span>t Maison Royale, culinary artistry meets profound atmosphere. Our head chef meticulously curates seasonal menus that celebrate both avant-garde techniques and timeless traditions.
           </motion.p>
@@ -59,7 +59,7 @@ export function DiningIntro() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.38 }}
-            className="font-serif text-[18px] leading-[1.8] text-[#5D4037] max-w-[560px]"
+            className="font-serif text-[18px] leading-[1.8] text-white/80 max-w-[560px]"
           >
             Sourced locally and prepared globally, every dish is an invitation to explore a world of rich, resonant flavors.
           </motion.p>
@@ -95,14 +95,14 @@ export function DiningIntro() {
             transition={{ duration: 1, delay: 1.2 }}
             className="w-[120px] h-[120px] rounded-full p-2 bg-gradient-to-tr from-gold to-[#C19A3A] shadow-xl hover:rotate-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
           >
-             <div className="w-full h-full rounded-full border-[8px] border-white overflow-hidden">
+             <div className="w-full h-full rounded-full border-[8px] border-white/20 overflow-hidden">
                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=200" alt="Chef" className="w-full h-full object-cover" />
              </div>
           </motion.div>
           <div>
-            <h4 className="text-[1.3rem] font-bold text-[#3E2723]">Alexandre Dubois</h4>
-            <p className="text-[0.95rem] italic text-white/60 mb-2">Executive Chef</p>
-            <div className="font-[Dancing_Script] text-2xl text-[#3E2723]/70 font-script">
+            <h4 className="text-[1.3rem] font-bold text-white">Alexandre Dubois</h4>
+            <p className="text-[0.95rem] italic text-gold mb-2">Executive Chef</p>
+            <div className="font-[Dancing_Script] text-2xl text-gold/70 font-script">
               A. Dubois
             </div>
           </div>
