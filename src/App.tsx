@@ -14,8 +14,14 @@ import Amenities from "./pages/Amenities";
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Global Minimal Background */}
-      <div className="fixed inset-0 w-full h-full pointer-events-none z-[-50] bg-[#1a1a1a]">
+      {/* Global Fullscreen Background */}
+      <div className="fixed inset-0 w-full h-full pointer-events-none z-[-50]">
+        <img 
+          src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/11a77858f8206ead3a9e5d402f53024af0663a4c/pexels-larry-penaloza-311813562-13549224.jpg" 
+          alt="Hotel Background" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       <Layout>
