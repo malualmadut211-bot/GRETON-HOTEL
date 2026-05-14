@@ -33,7 +33,7 @@ export function RoomModal({ room, onClose }: RoomModalProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-5xl bg-white sm:rounded-2xl max-h-[90vh] overflow-hidden pointer-events-auto flex flex-col shadow-[0_32px_64px_rgba(0,0,0,0.3)]"
+          className="relative w-full max-w-5xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  sm:rounded-2xl max-h-[90vh] overflow-hidden pointer-events-auto flex flex-col shadow-[0_32px_64px_rgba(0,0,0,0.3)]"
         >
           {/* Close button */}
           <button 
@@ -65,31 +65,31 @@ export function RoomModal({ room, onClose }: RoomModalProps) {
 
              {/* Content */}
              <div className="p-6 sm:p-10">
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8 border-b border-gray-100 pb-8">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8  pb-8">
                   <div>
                     <span className="text-gold text-xs font-sans uppercase tracking-widest font-semibold mb-2 block">{room.category}</span>
-                    <h2 className="text-3xl sm:text-4xl font-serif text-[#1A1A1A]">{room.name}</h2>
+                    <h2 className="text-3xl sm:text-4xl font-serif text-white">{room.name}</h2>
                   </div>
                   <div className="text-left sm:text-right">
-                     <span className="text-sm text-gray-500 block mb-1">From</span>
-                     <span className="text-3xl font-serif font-bold text-gold">${room.price}<span className="text-lg text-gray-500 font-sans font-normal">/night</span></span>
+                     <span className="text-sm text-white/60 block mb-1">From</span>
+                     <span className="text-3xl font-serif font-bold text-gold">${room.price}<span className="text-lg text-white/60 font-sans font-normal">/night</span></span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                   <div className="lg:col-span-2 space-y-8">
                     <section>
-                      <h3 className="text-xl font-serif text-[#1A1A1A] mb-4">About this room</h3>
-                      <p className="text-gray-600 font-sans leading-relaxed text-[0.9375rem]">{room.description}</p>
+                      <h3 className="text-xl font-serif text-white mb-4">About this room</h3>
+                      <p className="text-white/70 font-sans leading-relaxed text-[0.9375rem]">{room.description}</p>
                     </section>
 
                     <section>
-                      <h3 className="text-xl font-serif text-[#1A1A1A] mb-4">Room Amenities</h3>
+                      <h3 className="text-xl font-serif text-white mb-4">Room Amenities</h3>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                          {room.amenities.map((item, idx) => {
                            const Icon = AMENITY_ICONS[item];
                            return (
-                             <div key={idx} className="flex items-center gap-3 text-gray-600 bg-gray-50 p-3 rounded-lg">
+                             <div key={idx} className="flex items-center gap-3 text-white/70 bg-transparent p-3 rounded-lg">
                                {Icon && <Icon size={18} className="text-gold" />}
                                <span className="text-sm font-sans">{item}</span>
                              </div>
@@ -101,32 +101,32 @@ export function RoomModal({ room, onClose }: RoomModalProps) {
 
                   {/* Sidebar specs */}
                   <div className="space-y-6">
-                    <div className="bg-[#FAFAFA] p-6 rounded-xl border border-gray-100">
-                       <h4 className="font-serif text-lg mb-4 text-[#1A1A1A]">Specifications</h4>
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white p-6 rounded-xl ">
+                       <h4 className="font-serif text-lg mb-4 text-white">Specifications</h4>
                        <ul className="space-y-4">
-                         <li className="flex items-center gap-3 text-gray-600">
+                         <li className="flex items-center gap-3 text-white/70">
                            <Maximize size={18} className="text-gold" />
                            <span className="text-sm">{room.size} sq meters</span>
                          </li>
-                         <li className="flex items-center gap-3 text-gray-600">
+                         <li className="flex items-center gap-3 text-white/70">
                            <Users size={18} className="text-gold" />
                            <span className="text-sm">Up to {room.occupancy} guests</span>
                          </li>
-                         <li className="flex items-center gap-3 text-gray-600">
+                         <li className="flex items-center gap-3 text-white/70">
                            <Bed size={18} className="text-gold" />
                            <span className="text-sm">{room.bedType}</span>
                          </li>
-                         <li className="flex items-center gap-3 text-gray-600">
+                         <li className="flex items-center gap-3 text-white/70">
                            <Eye size={18} className="text-gold" />
                            <span className="text-sm">{room.view}</span>
                          </li>
                        </ul>
                     </div>
 
-                    <div className="sticky bottom-0 bg-white pt-4">
+                    <div className="sticky bottom-0 bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  pt-4">
                       <Link 
                         to={`/contact?room=${room.id}`}
-                        className="w-full block text-center py-4 bg-[linear-gradient(135deg,#D4AF37,#F4E5B5)] text-[#1A1A1A] font-sans font-semibold uppercase tracking-widest text-sm rounded-lg hover:shadow-[0_8px_20px_rgba(212,175,55,0.4)] hover:-translate-y-0.5 transition-all duration-300"
+                        className="w-full block text-center py-4 bg-[linear-gradient(135deg,#D4AF37,#F4E5B5)] text-white font-sans font-semibold uppercase tracking-widest text-sm rounded-lg hover:shadow-[0_8px_20px_rgba(212,175,55,0.4)] hover:-translate-y-0.5 transition-all duration-300"
                       >
                         Book This Room
                       </Link>

@@ -33,8 +33,8 @@ export function ReservationForm() {
           onFocus={() => setFocusedField(name)}
           onBlur={() => setFocusedField(null)}
           className={cn(
-            "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-[#FAFAFA] font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none",
-            isFocused ? "border-gold bg-white shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]",
+            "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-transparent font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none",
+            isFocused ? "border-gold bg-transparent border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]",
             hasValue && !isFocused && "border-green-500 bg-green-500/5"
           )}
           {...props}
@@ -65,7 +65,7 @@ export function ReservationForm() {
   };
 
   return (
-    <section className="bg-[#F9F7F4] py-[100px]">
+    <section className="bg-transparent bg-transparent py-[100px]">
       <motion.div 
          initial={{ opacity: 0, y: -40, scale: 0.95 }}
          whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -82,7 +82,7 @@ export function ReservationForm() {
          whileInView={{ opacity: 1, scale: 1, y: 0 }}
          viewport={{ once: true }}
          transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-         className="max-w-[800px] mx-auto bg-white rounded-[20px] p-[30px] md:p-[50px] shadow-[0_15px_60px_rgba(0,0,0,0.08)]"
+         className="max-w-[800px] mx-auto bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  rounded-[20px] p-[30px] md:p-[50px] shadow-[0_15px_60px_rgba(0,0,0,0.08)]"
       >
         <AnimatePresence mode="wait">
           {!success ? (
@@ -112,8 +112,8 @@ export function ReservationForm() {
                       onFocus={() => setFocusedField("time")}
                       onBlur={() => setFocusedField(null)}
                       className={cn(
-                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-[#FAFAFA] font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none appearance-none cursor-pointer",
-                        focusedField === "time" ? "border-gold bg-white shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
+                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-transparent font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none appearance-none cursor-pointer",
+                        focusedField === "time" ? "border-gold bg-transparent border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
                       )}
                       required
                     >
@@ -134,8 +134,8 @@ export function ReservationForm() {
                       onFocus={() => setFocusedField("party")}
                       onBlur={() => setFocusedField(null)}
                       className={cn(
-                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-[#FAFAFA] font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none appearance-none cursor-pointer",
-                        focusedField === "party" ? "border-gold bg-white shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
+                        "w-full h-[56px] px-[20px] pb-2 pt-6 border-2 rounded-[12px] bg-transparent font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none appearance-none cursor-pointer",
+                        focusedField === "party" ? "border-gold bg-transparent border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
                       )}
                       required
                     >
@@ -159,8 +159,8 @@ export function ReservationForm() {
                    onFocus={() => setFocusedField("notes")}
                    onBlur={() => setFocusedField(null)}
                    className={cn(
-                     "w-full min-h-[120px] max-h-[200px] px-[20px] pt-8 pb-3 border-2 rounded-[12px] bg-[#FAFAFA] font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none resize-y",
-                     focusedField === "notes" ? "border-gold bg-white shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
+                     "w-full min-h-[120px] max-h-[200px] px-[20px] pt-8 pb-3 border-2 rounded-[12px] bg-transparent font-sans text-[16px] text-[#3E2723] transition-all duration-300 outline-none resize-y",
+                     focusedField === "notes" ? "border-gold bg-transparent border border-white/20 shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
                    )}
                  />
                  <label className={cn("absolute left-[20px] transition-all duration-300 pointer-events-none origin-left font-sans", formData.notes || focusedField === "notes" ? "top-[12px] text-[12px] font-semibold text-gold tracking-[0.05em]" : "top-[20px] text-[16px] text-[#9E9E9E]")}>Special Requests (Optional)</label>
@@ -171,7 +171,7 @@ export function ReservationForm() {
                 disabled={loading}
                 className={cn(
                   "w-full h-[64px] rounded-[32px] font-sans uppercase font-bold text-[18px] tracking-[0.15em] transition-all duration-400 relative overflow-hidden group",
-                  loading ? "bg-gray-300 text-gray-500 cursor-not-allowed shadow-[0_5px_15px_rgba(0,0,0,0.1)]" : "bg-[linear-gradient(135deg,#D4AF37_0%,#C19A3A_100%)] text-[#2C1810] shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(212,175,55,0.5)] active:translate-y-0 active:scale-[0.98]"
+                  loading ? "bg-gray-300 text-white/60 cursor-not-allowed shadow-[0_5px_15px_rgba(0,0,0,0.1)]" : "bg-[linear-gradient(135deg,#D4AF37_0%,#C19A3A_100%)] text-[#2C1810] shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:-translate-y-0.5 hover:shadow-[0_15px_50px_rgba(212,175,55,0.5)] active:translate-y-0 active:scale-[0.98]"
                 )}
               >
                  {!loading ? (

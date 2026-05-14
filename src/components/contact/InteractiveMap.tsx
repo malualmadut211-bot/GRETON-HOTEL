@@ -10,7 +10,7 @@ export function InteractiveMap() {
   const mapUrl = "https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1600"; // Fallback aesthetic map image if no actual Google Maps API key
 
   return (
-    <section className="px-6 py-20 max-w-[1400px] mx-auto">
+    <section className="bg-transparent px-6 py-20 max-w-[1400px] mx-auto">
       <div 
         ref={containerRef}
         className="w-full h-[500px] rounded-[12px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.15)] relative bg-[#E3DCC8] flex items-center justify-center"
@@ -45,7 +45,7 @@ export function InteractiveMap() {
              </svg>
 
              {/* Tooltip */}
-             <div className="absolute bottom-[100%] left-1/2 -translate-x-1/2 -mb-2 p-[8px_16px] bg-white text-[#2C2C2C] text-[14px] font-semibold rounded-[6px] shadow-[0_4px_12px_rgba(0,0,0,0.15)] whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:-translate-y-[10px] transition-all pointer-events-none">
+             <div className="absolute bottom-[100%] left-1/2 -translate-x-1/2 -mb-2 p-[8px_16px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  text-white text-[14px] font-semibold rounded-[6px] shadow-[0_4px_12px_rgba(0,0,0,0.15)] whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:-translate-y-[10px] transition-all pointer-events-none">
                Greton Hotel
                <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-white" />
              </div>
@@ -63,7 +63,7 @@ export function InteractiveMap() {
             href="https://maps.google.com"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-[10px] bg-white p-[12px_24px] rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.2)] cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-[3px] hover:shadow-[0_6px_30px_rgba(212,175,55,0.4)] group"
+            className="flex items-center gap-[10px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  p-[12px_24px] rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.2)] cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white hover:-translate-y-[3px] hover:shadow-[0_6px_30px_rgba(212,175,55,0.4)] group"
           >
             <MapPin size={20} className="group-hover:rotate-15 group-hover:scale-110 transition-transform" />
             <span className="font-semibold text-[14px]">Get Directions</span>

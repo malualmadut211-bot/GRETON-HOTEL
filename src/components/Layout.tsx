@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import { Menu, X, Phone, MapPin, Mail, Instagram, Facebook, Twitter, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { animate, createDrawable, stagger, onScroll as animeOnScroll } from "animejs";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -36,7 +35,7 @@ function Navbar() {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled || isMobileMenuOpen ? "bg-white shadow-md py-4" : "bg-transparent py-6"
+        isScrolled || isMobileMenuOpen ? "bg-transparent border border-white/20 shadow-md py-4" : "bg-transparent py-6"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -44,7 +43,7 @@ function Navbar() {
         <Link to="/" className="flex items-center gap-2 group">
           <span className={cn(
             "text-2xl font-serif font-bold tracking-wider transition-colors",
-            isScrolled || isMobileMenuOpen ? "text-charcoal" : "text-white"
+            isScrolled || isMobileMenuOpen ? "text-white" : "text-white"
           )}>
             GRETON <span className="text-gold font-light">HOTEL</span>
           </span>
@@ -58,13 +57,13 @@ function Navbar() {
               to={link.path}
               className={cn(
                 "text-sm font-medium tracking-wide relative group transition-colors",
-                isScrolled ? "text-charcoal hover:text-gold" : "text-white/90 hover:text-white"
+                isScrolled ? "text-white hover:text-gold" : "text-white/90 hover:text-white"
               )}
             >
               {link.name}
               <span className={cn(
                 "absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
-                isScrolled ? "bg-gold" : "bg-white"
+                isScrolled ? "bg-gold" : "bg-transparent border border-white/20"
               )} />
             </Link>
           ))}
@@ -74,7 +73,7 @@ function Navbar() {
         <div className="hidden lg:flex items-center gap-6">
           <a href="tel:+254701110010" className={cn(
             "flex items-center gap-2 text-sm transition-colors hover:text-gold",
-            isScrolled ? "text-charcoal" : "text-white"
+            isScrolled ? "text-white" : "text-white"
           )}>
             <Phone size={18} />
           </a>
@@ -83,8 +82,8 @@ function Navbar() {
             className={cn(
               "px-6 py-2.5 border transition-all duration-300 uppercase tracking-widest text-xs font-semibold",
               isScrolled 
-                ? "border-charcoal text-charcoal hover:bg-charcoal hover:text-white hover:shadow-[0_0_15px_rgba(44,44,44,0.3)] hover:border-transparent" 
-                : "border-white text-white hover:bg-white hover:text-charcoal hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:border-transparent"
+                ? "border-charcoal text-white hover:bg-charcoal hover:text-white hover:shadow-[0_0_15px_rgba(44,44,44,0.3)] hover:border-transparent" 
+                : "border-white text-white hover:bg-white/20 hover:text-white hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:border-transparent"
             )}
           >
             Book Now
@@ -94,7 +93,7 @@ function Navbar() {
         {/* Mobile Toggle */}
         <button
           className={cn("lg:hidden w-10 h-10 flex items-center justify-center", 
-            isScrolled || isMobileMenuOpen ? "text-charcoal" : "text-white"
+            isScrolled || isMobileMenuOpen ? "text-white" : "text-white"
           )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -110,7 +109,7 @@ function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", duration: 0.4 }}
-            className="fixed inset-0 top-[72px] bg-white z-40 overflow-y-auto"
+            className="fixed inset-0 top-[72px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  z-40 overflow-y-auto"
           >
             <div className="flex flex-col p-8 gap-6 h-full">
               {NAV_LINKS.map((link, i) => (
@@ -122,15 +121,15 @@ function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className="text-2xl font-serif text-charcoal hover:text-gold transition-colors"
+                    className="text-2xl font-serif text-white hover:text-gold transition-colors"
                   >
                     {link.name}
                   </Link>
                 </motion.div>
               ))}
               
-              <div className="mt-8 pt-8 border-t border-gray-100 flex flex-col gap-4">
-                <a href="tel:+254701110010" className="flex items-center gap-3 text-charcoal">
+              <div className="mt-8 pt-8  flex flex-col gap-4">
+                <a href="tel:+254701110010" className="flex items-center gap-3 text-white">
                   <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold">
                     <Phone size={18} />
                   </div>
@@ -138,19 +137,19 @@ function Navbar() {
                 </a>
                 <Link
                   to="/contact"
-                  className="mt-4 bg-charcoal text-white text-center py-4 tracking-widest uppercase font-semibold text-sm hover:bg-gold transition-colors"
+                  className="mt-4 bg-transparent backdrop-blur-md text-white text-center py-4 tracking-widest uppercase font-semibold text-sm hover:bg-gold transition-colors"
                 >
                   Book Your Stay
                 </Link>
                 
                 <div className="flex gap-4 items-center justify-center mt-6">
-                  <a href="#" className="w-10 h-10 rounded-full bg-charcoal/5 flex items-center justify-center text-charcoal hover:bg-gold hover:text-white transition-colors">
+                  <a href="#" className="w-10 h-10 rounded-full bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold hover:text-white transition-colors">
                     <Facebook size={18} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-charcoal/5 flex items-center justify-center text-charcoal hover:bg-gold hover:text-white transition-colors">
+                  <a href="#" className="w-10 h-10 rounded-full bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold hover:text-white transition-colors">
                     <Instagram size={18} />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-charcoal/5 flex items-center justify-center text-charcoal hover:bg-gold hover:text-white transition-colors">
+                  <a href="#" className="w-10 h-10 rounded-full bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-gold hover:text-white transition-colors">
                     <Twitter size={18} />
                   </a>
                 </div>
@@ -173,7 +172,7 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-[#1A1A1A] text-white w-full pt-[80px] px-6 lg:px-[60px] pb-[40px]">
+    <footer className="bg-transparent text-white w-full pt-[80px] px-6 lg:px-[60px] pb-[40px]">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-[48px]">
         
         {/* Brand */}
@@ -263,7 +262,7 @@ function Footer() {
             />
             <button 
               type="submit" 
-              className="w-full p-[14px_20px] bg-gradient-to-r from-[#D4AF37] to-[#F4E5B5] rounded-lg font-sans text-[0.9375rem] font-semibold text-[#1A1A1A] uppercase tracking-[0.05em] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] hover:bg-gradient-to-l transition-all duration-300"
+              className="w-full p-[14px_20px] bg-gradient-to-r from-[#D4AF37] to-[#F4E5B5] rounded-lg font-sans text-[0.9375rem] font-semibold text-white uppercase tracking-[0.05em] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] hover:bg-gradient-to-l transition-all duration-300"
               style={{ background: isSubscribed ? '#4CAF50' : '' }}
             >
               {isSubscribed ? '✓ Subscribed!' : 'Subscribe'}
@@ -274,7 +273,7 @@ function Footer() {
       </div>
       
       {/* Bottom Bar */}
-      <div className="max-w-[1400px] mx-auto mt-[60px] pt-[32px] border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.875rem] font-sans">
+      <div className="max-w-[1400px] mx-auto mt-[60px] pt-[32px]  flex flex-col md:flex-row justify-between items-center gap-4 text-[0.875rem] font-sans">
         <p className="text-white/50">&copy; {new Date().getFullYear()} Greton Hotel. All rights reserved.</p>
         <div className="flex gap-5 text-white/60">
           <Link to="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
@@ -303,7 +302,7 @@ function FloatingBookButton() {
     <Link
       to="/contact"
       className={cn(
-        "fixed bottom-8 right-8 z-[1000] h-[60px] bg-[linear-gradient(135deg,#D4AF37,#F4E5B5)] shadow-[0_8px_32px_rgba(212,175,55,0.4),0_0_60px_rgba(212,175,55,0.3)] rounded-[30px] flex items-center justify-center text-[#1A1A1A] transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] overflow-hidden group hover:px-6 hover:shadow-[0_12px_40px_rgba(212,175,55,0.5),0_0_80px_rgba(212,175,55,0.5)] animate-[floatingPulse_2.5s_ease-in-out_infinite]",
+        "fixed bottom-8 right-8 z-[1000] h-[60px] bg-[linear-gradient(135deg,#D4AF37,#F4E5B5)] shadow-[0_8px_32px_rgba(212,175,55,0.4),0_0_60px_rgba(212,175,55,0.3)] rounded-[30px] flex items-center justify-center text-white transition-all duration-400 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)] overflow-hidden group hover:px-6 hover:shadow-[0_12px_40px_rgba(212,175,55,0.5),0_0_80px_rgba(212,175,55,0.5)] animate-[floatingPulse_2.5s_ease-in-out_infinite]",
         isVisible ? "opacity-100 translate-y-0 w-[60px] hover:w-[160px]" : "opacity-0 translate-y-5 pointer-events-none w-[60px]"
       )}
     >
@@ -355,7 +354,7 @@ function BackToTopButton() {
           exit={{ opacity: 0, scale: 0, y: 20 }}
           transition={{ type: "spring", bounce: 0.4 }}
           onClick={scrollToTop}
-          className="fixed bottom-[110px] right-8 z-[1000] w-[50px] h-[50px] rounded-full bg-white border border-gold/20 shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex items-center justify-center text-gold hover:bg-gold hover:text-white hover:-translate-y-[5px] transition-all duration-300 group focus:outline-none"
+          className="fixed bottom-[110px] right-8 z-[1000] w-[50px] h-[50px] rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex items-center justify-center text-gold hover:bg-gold hover:text-white hover:-translate-y-[5px] transition-all duration-300 group focus:outline-none"
         >
           <motion.div
             whileTap={{ y: -5 }}
@@ -371,18 +370,6 @@ function BackToTopButton() {
 }
 
 export function Layout({ children }: { children: ReactNode }) {
-  const location = useLocation();
-
-  useEffect(() => {
-    // animate all paths sequentially dynamically
-    animate(createDrawable('path'), {
-      draw: ['0 0', '0 1', '1 1'],
-      delay: stagger(40),
-      ease: 'inOut(3)',
-      autoplay: animeOnScroll({ sync: true }),
-    });
-  }, [location.pathname]);
-
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollProgress />

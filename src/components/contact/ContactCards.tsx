@@ -35,7 +35,7 @@ const CARDS = [
 
 export function ContactCards() {
   return (
-    <section className="relative z-20 max-w-6xl mx-auto px-6 -mt-24 mb-20">
+    <section className="bg-transparent relative z-20 max-w-6xl mx-auto px-6 -mt-24 mb-20">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {CARDS.map((card, i) => (
           <motion.div
@@ -44,16 +44,16 @@ export function ContactCards() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.7, delay: i * 0.2, ease: [0.4, 0.0, 0.2, 1] }}
-            className="bg-white rounded-xl border border-gold/20 p-8 flex flex-col items-center text-center group hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-[0_4px_20px_rgba(0,0,0,0.06)] h-[320px]"
+            className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  rounded-xl border border-gold/20 p-8 flex flex-col items-center text-center group hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-[0_4px_20px_rgba(0,0,0,0.06)] h-[320px]"
           >
             <div className="w-[80px] h-[80px] rounded-full bg-gold/10 flex items-center justify-center text-gold mb-6 group-hover:scale-115 transition-transform duration-300 relative">
                <div className={cn("relative z-10", card.iconGlow)}>
                  <card.icon size={32} />
                </div>
             </div>
-            <h3 className="font-bold text-[28px] text-[#2C2C2C] mb-2">{card.title}</h3>
+            <h3 className="font-bold text-[28px] text-white mb-2">{card.title}</h3>
             <p className="text-[20px] text-gold font-medium mb-1">{card.detail}</p>
-            <p className={cn("text-[16px] text-gray-500 line-clamp-1 flex-1", card.title === "Visit Us" && "font-mono text-[14px]")}>
+            <p className={cn("text-[16px] text-white/60 line-clamp-1 flex-1", card.title === "Visit Us" && "font-mono text-[14px]")}>
               {card.subtext}
             </p>
             

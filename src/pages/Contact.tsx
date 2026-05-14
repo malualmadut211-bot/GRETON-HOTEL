@@ -11,7 +11,7 @@ import { NewsletterSignup } from "@/components/contact/NewsletterSignup";
 
 export default function Contact() {
   return (
-    <div className="bg-[#FAF9F6] min-h-screen font-sans selection:bg-gold/30 selection:text-[#2C2C2C]">
+    <div className="bg-transparent min-h-screen font-sans selection:bg-gold/30 selection:text-white">
       {/* 1. Hero Section */}
       <ContactHero />
 

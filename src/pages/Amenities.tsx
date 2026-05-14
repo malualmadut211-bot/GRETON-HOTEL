@@ -51,23 +51,9 @@ export default function Amenities() {
   };
 
   return (
-    <div ref={containerRef} className="bg-[#fcfaeb] min-h-screen font-sans overflow-x-hidden pt-20">
+    <div ref={containerRef} className="bg-transparent min-h-screen font-sans overflow-x-hidden pt-20">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[80vh] flex flex-col justify-end pb-20 items-center overflow-hidden bg-[#1A1A1A]">
-        {/* Layer 1 - Background */}
-        <motion.div style={{ y: yBg1 }} className="absolute inset-0 w-full h-[120%] -top-[10%] z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2560" 
-            alt="Wide pool panorama" 
-            className="w-full h-full object-cover blur-[2px] opacity-60 mix-blend-luminosity brightness-75 scale-105 animate-[kenBurns_20s_infinite_alternate]"
-          />
-        </motion.div>
-
-        {/* Layer 2 - Mid-ground */}
-        <motion.div style={{ y: yBg2 }} className="absolute inset-0 w-full h-[150%] -top-[20%] z-10 opacity-70 animate-[float_4s_ease-in-out_infinite]">
-          <div className="absolute inset-x-0 top-1/3 h-64 bg-gradient-to-b from-transparent via-[#1a1a1a]/50 to-transparent shadow-[0_50px_100px_rgba(0,0,0,0.3)]"></div>
-        </motion.div>
-
+      <section className="bg-transparent relative h-[80vh] flex flex-col justify-end pb-20 items-center overflow-hidden">
         {/* Content */}
         <div className="relative z-20 text-center text-white px-6 w-full max-w-7xl mx-auto flex flex-col items-center">
           <motion.h1
@@ -116,7 +102,7 @@ export default function Amenities() {
                   hidden: { scale: 0, rotate: -180 },
                   visible: { scale: 1, rotate: 0, transition: { type: "spring", stiffness: 200, damping: 10 } }
                 }}
-                className="group relative w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:-rotate-6 hover:shadow-[0_10px_20px_rgba(212,175,55,0.4)]"
+                className="group relative w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:-rotate-6 hover:shadow-[0_10px_20px_rgba(212,175,55,0.4)]"
                 style={{
                    animation: `floatIcon 3s ease-in-out infinite alternate`,
                    animationDelay: `${i * 0.2}s`
@@ -133,7 +119,7 @@ export default function Amenities() {
       {/* 2. NAVIGATION PILLS */}
       <div className={cn(
         "z-50 w-full transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]",
-        isNavSticky ? "fixed top-[70px] lg:top-[90px] bg-white/95 backdrop-blur-[20px] saturate-[180%] shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-b border-black/5" : "relative bg-transparent"
+        isNavSticky ? "fixed top-[70px] lg:top-[90px] bg-transparent-[20px] saturate-[180%] shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-b border-black/5" : "relative bg-transparent"
       )}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-center gap-2 overflow-x-auto no-scrollbar">
           {NAV_ITEMS.map(item => {
@@ -144,7 +130,7 @@ export default function Amenities() {
                 onClick={() => scrollTo(item.id)}
                 className={cn(
                   "relative px-6 py-3 rounded-full text-[13px] md:text-[14px] uppercase tracking-widest transition-all duration-300 whitespace-nowrap",
-                  isActive ? "text-[#1a1a1a] font-bold" : "text-[#333] font-medium hover:text-gold hover:-translate-y-0.5 hover:bg-gold/10"
+                  isActive ? "text-white font-bold" : "text-white/90 font-medium hover:text-gold hover:-translate-y-0.5 hover:bg-gold/10"
                 )}
               >
                 {isActive && (
@@ -167,7 +153,7 @@ export default function Amenities() {
       <div className="max-w-[1400px] mx-auto px-6 py-20 divide-y divide-gray-200/50">
 
         {/* 3. RESTAURANT & BAR (Image Right) */}
-        <section id="restaurant" className="py-24 flex flex-col-reverse lg:flex-row gap-16 lg:gap-24 items-center">
+        <section id="restaurant" className="bg-transparent py-24 flex flex-col-reverse lg:flex-row gap-16 lg:gap-24 items-center">
           
           {/* Content */}
           <div className="flex-1 w-full relative z-10">
@@ -181,12 +167,12 @@ export default function Amenities() {
                  <Utensils size={32} className="text-gold group-hover:scale-110 transition-transform" />
                  <motion.div initial={{ left: "-100%" }} whileInView={{ left: "100%" }} transition={{ duration: 1, delay: 0.5 }} className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/30 to-transparent skew-x-12" />
               </div>
-              <h2 className="text-[40px] lg:text-[50px] font-serif text-[#1a1a1a] mb-6 leading-tight">
+              <h2 className="text-[40px] lg:text-[50px] font-serif text-white mb-6 leading-tight">
                 <span className="text-gold">Sports Bar</span> & Grill
               </h2>
               <div className="h-[3px] w-20 bg-gradient-to-r from-gold to-[#e63946] mb-8" />
               
-              <p className="text-[16px] xl:text-[18px] text-[#444] leading-[1.8] mb-10">
+              <p className="text-[16px] xl:text-[18px] text-white/80 leading-[1.8] mb-10">
                 Savor local and international cuisine in our vibrant sports bar featuring indoor and outdoor seating. Watch live games while enjoying expertly crafted meals and drinks.
               </p>
 
@@ -198,7 +184,7 @@ export default function Amenities() {
                     whileInView={{ opacity: 1, x: 0 }} 
                     viewport={{ once: true }} 
                     transition={{ delay: i * 0.1 + 0.2, duration: 0.4 }}
-                    className="flex items-center gap-4 text-[#1a1a1a] font-medium group"
+                    className="flex items-center gap-4 text-white font-medium group"
                   >
                     <div className="w-6 h-6 rounded-full bg-[linear-gradient(135deg,#D4AF37,#F4E5B8)] text-white flex items-center justify-center shadow-[0_2px_8px_rgba(212,175,55,0.3)] group-hover:scale-110 group-hover:rotate-12 transition-all">
                       ✓
@@ -210,7 +196,7 @@ export default function Amenities() {
 
               <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] border-2 border-gold rounded-full shadow-sm mb-10">
                 <span className="text-2xl animate-[spin_60s_linear_infinite]">🕐</span>
-                <span className="font-sans font-bold text-[#333] tracking-wider">Daily 6:00 AM - 11:00 PM</span>
+                <span className="font-sans font-bold text-white/90 tracking-wider">Daily 6:00 AM - 11:00 PM</span>
               </div>
 
               <br />
@@ -220,7 +206,7 @@ export default function Amenities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.6 }}
-                className="group relative overflow-hidden bg-[linear-gradient(135deg,#D4AF37_0%,#F4E5B8_100%)] text-[#1a1a1a] font-bold uppercase tracking-widest rounded-full px-10 py-4 shadow-[0_4px_15px_rgba(212,175,55,0.3)] hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(212,175,55,0.6)] transition-all duration-400"
+                className="group relative overflow-hidden bg-[linear-gradient(135deg,#D4AF37_0%,#F4E5B8_100%)] text-white font-bold uppercase tracking-widest rounded-full px-10 py-4 shadow-[0_4px_15px_rgba(212,175,55,0.3)] hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(212,175,55,0.6)] transition-all duration-400"
               >
                 <span className="flex items-center gap-2 group-hover:translate-x-1 transition-transform">
                    📄 View Menu <span className="group-hover:translate-x-2 opacity-70 group-hover:opacity-100 transition-all font-serif">→</span>
@@ -264,7 +250,7 @@ export default function Amenities() {
         </section>
 
         {/* 4. POOL SECTION (Image Left, Video BG simulation) */}
-        <section id="pool" className="py-24 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center relative">
+        <section id="pool" className="bg-transparent py-24 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center relative">
           
           {/* Image */}
           <motion.div 
@@ -304,11 +290,11 @@ export default function Amenities() {
               </svg>
             </div>
             
-            <h2 className="text-[40px] lg:text-[50px] font-serif text-[#1a1a1a] mb-6 leading-tight">
+            <h2 className="text-[40px] lg:text-[50px] font-serif text-white mb-6 leading-tight">
               Refreshing <span className="text-[#0277BD]">Pool</span> Experience
             </h2>
             
-            <p className="text-[16px] xl:text-[18px] text-[#444] leading-[1.8] mb-8">
+            <p className="text-[16px] xl:text-[18px] text-white/80 leading-[1.8] mb-8">
               Dive into relaxation in our temperature-controlled infinity pool overlooking the city skyline. Complete with private cabanas and signature towel service.
             </p>
 
@@ -316,7 +302,7 @@ export default function Amenities() {
                {["Olympic Size (50m)", "Heated Year-Round", "Towels Provided", "Poolside Loungers", "Lifeguard on Duty", "Kids' Area"].map((feat, i) => (
                  <div key={i} className="flex items-center gap-3">
                    <Droplet size={14} className="text-[#4FC3F7]" />
-                   <span className="text-[15px] font-medium text-[#333]">{feat}</span>
+                   <span className="text-[15px] font-medium text-white/90">{feat}</span>
                  </div>
                ))}
             </div>
@@ -328,14 +314,14 @@ export default function Amenities() {
         </section>
 
         {/* 5. FITNESS CENTER (Image Right, Staggered Grid) */}
-        <section id="fitness" className="py-24 flex flex-col-reverse lg:flex-row gap-16 lg:gap-24 items-center">
+        <section id="fitness" className="bg-transparent py-24 flex flex-col-reverse lg:flex-row gap-16 lg:gap-24 items-center">
           
           <div className="flex-1 w-full">
-            <h2 className="text-[40px] lg:text-[50px] font-serif text-[#1a1a1a] mb-6 leading-tight">
-              State-of-the-Art <span className="text-gray-500">Fitness</span>
+            <h2 className="text-[40px] lg:text-[50px] font-serif text-white mb-6 leading-tight">
+              State-of-the-Art <span className="text-white/60">Fitness</span>
             </h2>
             
-            <p className="text-[16px] xl:text-[18px] text-[#444] leading-[1.8] mb-10">
+            <p className="text-[16px] xl:text-[18px] text-white/80 leading-[1.8] mb-10">
               Maintain your routine in our fully equipped gymnasium featuring the latest cardio machines, free weights, and dedicated yoga spaces.
             </p>
 
@@ -348,10 +334,10 @@ export default function Amenities() {
                    whileInView={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.6, delay: i * 0.1, type: "spring", stiffness: 100 }}
-                   className="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 hover:border-gold transition-all duration-300 group cursor-pointer relative"
+                   className="flex flex-col items-center p-4 bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 hover:border-gold transition-all duration-300 group cursor-pointer relative"
                  >
-                    <Dumbbell size={32} className="text-gray-400 group-hover:text-gold mb-3 transition-colors" />
-                    <span className="text-[13px] font-bold text-[#333] tracking-wide text-center">{equip}</span>
+                    <Dumbbell size={32} className="text-white/60 group-hover:text-gold mb-3 transition-colors" />
+                    <span className="text-[13px] font-bold text-white/90 tracking-wide text-center">{equip}</span>
                     <div className="absolute top-2 right-2 scale-0 group-hover:scale-100 transition-transform">
                       <div className="w-2 h-2 rounded-full bg-gold animate-ping" />
                     </div>
@@ -364,7 +350,7 @@ export default function Amenities() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, type: "spring" }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-[#1a1a1a] text-white rounded-full font-bold uppercase tracking-widest text-[13px] shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-transparent text-white rounded-full font-bold uppercase tracking-widest text-[13px] shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform"
             >
               🏋️ Personal Training Available
             </motion.div>
@@ -384,7 +370,7 @@ export default function Amenities() {
         </section>
 
         {/* 6. BUSINESS CENTER (Image Left, Tech Theme) */}
-        <section id="business" className="py-24 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+        <section id="business" className="bg-transparent py-24 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           
           <div className="flex-1 w-full order-2 lg:order-1">
              <div className="relative group perspective-[1000px]">
@@ -399,9 +385,9 @@ export default function Amenities() {
                  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400" className="w-full h-full object-cover" />
                  {/* Tech Overlay lines */}
                  <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(0,255,255,0.05)_0px,transparent_1px,transparent_4px)]" />
-                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur p-6 rounded-2xl border border-white translate-z-[50px] shadow-xl">
-                    <h4 className="font-bold text-[#1a1a1a] mb-2">Private Meeting Rooms</h4>
-                    <ul className="text-sm text-[#444] space-y-1">
+                 <div className="absolute bottom-6 left-6 right-6 bg-transparent p-6 rounded-2xl border border-white translate-z-[50px] shadow-xl">
+                    <h4 className="font-bold text-white mb-2">Private Meeting Rooms</h4>
+                    <ul className="text-sm text-white/80 space-y-1">
                       <li>• Capacity: 8-12 people</li>
                       <li>• 4K Video Conferencing</li>
                       <li>• Smart Whiteboards</li>
@@ -412,25 +398,25 @@ export default function Amenities() {
           </div>
 
           <div className="flex-1 w-full order-1 lg:order-2">
-            <h2 className="text-[40px] lg:text-[50px] font-serif text-[#1a1a1a] mb-6 leading-tight">
+            <h2 className="text-[40px] lg:text-[50px] font-serif text-white mb-6 leading-tight">
               Executive <span className="relative">Business<span className="absolute -bottom-2 left-0 w-full h-[2px] bg-cyan-400"></span></span> Center
             </h2>
             
-            <p className="text-[16px] xl:text-[18px] text-[#444] leading-[1.8] mb-10">
+            <p className="text-[16px] xl:text-[18px] text-white/80 leading-[1.8] mb-10">
               Seamless productivity awaits in our business center, offering high-speed connectivity, private meeting rooms, and administrative support.
             </p>
 
             {/* Tech Specs */}
-            <div className="flex gap-12 mb-10 pb-10 border-b border-gray-200">
+            <div className="flex gap-12 mb-10 pb-10 ">
                <div>
                   <div className="text-[40px] font-bold text-cyan-600 tracking-tighter shadow-cyan-400/50 drop-shadow-md">
                      <span className="text-[20px]">Up to </span>1000<span className="text-[20px]"> Mbps</span>
                   </div>
-                  <div className="text-[13px] font-bold uppercase tracking-widest text-[#999]">Fiber Internet Speed</div>
+                  <div className="text-[13px] font-bold uppercase tracking-widest text-white/60">Fiber Internet Speed</div>
                </div>
                <div>
                   <div className="text-[40px] font-bold text-cyan-600 tracking-tighter drop-shadow-md">24/7</div>
-                  <div className="text-[13px] font-bold uppercase tracking-widest text-[#999]">Secure Access</div>
+                  <div className="text-[13px] font-bold uppercase tracking-widest text-white/60">Secure Access</div>
                </div>
             </div>
 
@@ -438,7 +424,7 @@ export default function Amenities() {
               {["High-Speed Internet", "Printing & Scanning", "Video Conferencing", "Office Supplies"].map((srv, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-cyan-500 rounded-sm animate-pulse" />
-                  <span className="font-mono text-sm text-[#333]">{srv}</span>
+                  <span className="font-mono text-sm text-white/90">{srv}</span>
                 </div>
               ))}
             </div>
@@ -448,10 +434,10 @@ export default function Amenities() {
       </div>
 
       {/* 7. ADDITIONAL SERVICES (Radial Reveal Grid) */}
-      <section className="bg-white py-32 px-6 border-y border-gray-100 overflow-hidden relative">
+      <section className="bg-transparent py-32 px-6  overflow-hidden relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-[40px] font-serif text-[#1a1a1a]">Always At Your Service</h2>
+            <h2 className="text-[40px] font-serif text-white">Always At Your Service</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -469,13 +455,13 @@ export default function Amenities() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.6, delay: (Math.abs(i - 2.5) * 0.1) }} // Radial stagger
-                className="bg-gray-50 border border-gray-100 rounded-3xl p-8 hover:bg-white hover:shadow-[0_20px_60px_rgba(0,0,0,0.1),0_0_30px_rgba(212,175,55,0.1)] hover:-translate-y-2 transition-all duration-400 group cursor-pointer text-center flex flex-col items-center relative overflow-hidden"
+                className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  rounded-3xl p-8 hover:bg-white/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.1),0_0_30px_rgba(212,175,55,0.1)] hover:-translate-y-2 transition-all duration-400 group cursor-pointer text-center flex flex-col items-center relative overflow-hidden"
               >
-                 <div className="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_10px_20px_rgba(212,175,55,0.2)] transition-all">
-                   <srv.icon size={32} className="text-gray-400 group-hover:text-gold transition-colors" />
+                 <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_10px_20px_rgba(212,175,55,0.2)] transition-all">
+                   <srv.icon size={32} className="text-white/60 group-hover:text-gold transition-colors" />
                  </div>
-                 <h3 className="text-[20px] font-bold text-[#1a1a1a] mb-2">{srv.title}</h3>
-                 <p className="text-[15px] text-[#666]">{srv.desc}</p>
+                 <h3 className="text-[20px] font-bold text-white mb-2">{srv.title}</h3>
+                 <p className="text-[15px] text-white/70">{srv.desc}</p>
                  {i === 1 && <span className="mt-4 px-4 py-1 text-xs font-bold text-green-700 bg-green-100 rounded-full">24/7 Available</span>}
               </motion.div>
             ))}
@@ -484,12 +470,8 @@ export default function Amenities() {
       </section>
 
       {/* 8. GRAND FINALE CTA */}
-      <section className="relative py-40 px-6 overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#1a1a1a_0%,#2d2d2d_25%,#D4AF37_50%,#2d2d2d_75%,#1a1a1a_100%)] bg-[length:400%_400%] animate-[gradientShift_15s_ease_infinite]" />
-        <div className="absolute inset-0 opacity-[0.05] bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.1)_10px,rgba(255,255,255,0.1)_20px)] animate-[patternSlide_20s_linear_infinite]" />
-        
-        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+      <section className="bg-transparent relative py-40 px-6 overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-[40px] md:p-[80px] rounded-3xl">
           <motion.h2 
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -520,7 +502,7 @@ export default function Amenities() {
           >
             <Link 
               to="/contact" 
-              className="inline-block relative bg-[linear-gradient(135deg,#D4AF37_0%,#F4E5B8_100%)] text-[#1a1a1a] font-bold text-[18px] uppercase tracking-widest px-16 py-6 rounded-full shadow-[0_8px_30px_rgba(212,175,55,0.4),inset_0_2px_10px_rgba(255,255,255,0.5)] hover:-translate-y-1 hover:scale-105 hover:shadow-[0_15px_50px_rgba(212,175,55,0.7),inset_0_2px_15px_rgba(255,255,255,0.8)] transition-all duration-300 animate-[buttonPulse_2s_ease-in-out_infinite]"
+              className="inline-block relative bg-[linear-gradient(135deg,#D4AF37_0%,#F4E5B8_100%)] text-white font-bold text-[18px] uppercase tracking-widest px-16 py-6 rounded-full shadow-[0_8px_30px_rgba(212,175,55,0.4),inset_0_2px_10px_rgba(255,255,255,0.5)] hover:-translate-y-1 hover:scale-105 hover:shadow-[0_15px_50px_rgba(212,175,55,0.7),inset_0_2px_15px_rgba(255,255,255,0.8)] transition-all duration-300 animate-[buttonPulse_2s_ease-in-out_infinite]"
             >
               Reserve Now
             </Link>

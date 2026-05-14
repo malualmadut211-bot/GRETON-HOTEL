@@ -10,7 +10,7 @@ import { CustomerReviews } from "@/components/dining/CustomerReviews";
 
 export default function Dining() {
   return (
-    <div className="bg-[#FCFBF8] min-h-screen font-sans overflow-x-hidden">
+    <div className="bg-transparent min-h-screen font-sans overflow-x-hidden">
       <DiningHero />
       <DiningIntro />
       <MenuShowcase />

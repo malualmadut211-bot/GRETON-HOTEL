@@ -4,7 +4,7 @@ import { Tv, Flame, Wind, Clock } from "lucide-react";
 
 export function DiningExperience() {
   return (
-    <section className="bg-[#F8F6F2] py-[100px] overflow-hidden">
+    <section className="bg-transparent bg-transparent py-[100px] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-[30px] lg:px-[60px] flex flex-col lg:flex-row gap-16">
         
         {/* Left Content */}
@@ -78,7 +78,7 @@ export function DiningExperience() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 1.3 }}
-            className="bg-white border-2 border-[#E0E0E0] rounded-xl p-[25px] font-mono text-[1rem] max-w-[400px]"
+            className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  border-2 border-[#E0E0E0] rounded-xl p-[25px] font-mono text-[1rem] max-w-[400px]"
           >
              <h4 className="flex items-center gap-2 font-bold mb-4 border-b pb-2"><Clock size={20}/> HOURS OF OPERATION</h4>
              <div className="flex justify-between mb-2 group hover:bg-gold/10 hover:pl-2 transition-all rounded px-1">

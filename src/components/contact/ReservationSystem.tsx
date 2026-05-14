@@ -57,7 +57,7 @@ export function ReservationSystem() {
           onFocus={() => setFocused(name)}
           onBlur={() => setFocused(null)}
           className={cn(
-            "w-full h-[54px] px-[20px] rounded-lg border-2 bg-white text-[16px] transition-all duration-300 outline-none",
+            "w-full h-[54px] px-[20px] rounded-lg border-2 bg-transparent border border-white/20 text-[16px] transition-all duration-300 outline-none",
             isFocused ? "border-gold shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]",
             isValid && "border-green-500 pr-[50px]"
           )}
@@ -66,7 +66,7 @@ export function ReservationSystem() {
         <label 
           htmlFor={name}
           className={cn(
-            "absolute left-[20px] transition-all duration-300 pointer-events-none text-gray-400 bg-white px-1 font-sans",
+            "absolute left-[20px] transition-all duration-300 pointer-events-none text-white/60 bg-transparent border border-white/20 px-1 font-sans",
             isFloating ? "top-0 -translate-y-[50%] text-[12px] font-semibold text-gold" : "top-1/2 -translate-y-1/2 text-[14px]"
           )}
         >
@@ -86,7 +86,7 @@ export function ReservationSystem() {
   const total = subtotal + taxes;
 
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-transparent py-20 px-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
         {/* LEFT COLUMN: FORM */}
         <motion.div 
@@ -109,15 +109,15 @@ export function ReservationSystem() {
               </motion.div>
               <h3 className="text-3xl font-serif text-black mb-4">Reservation Confirmed!</h3>
               <p className="text-green-800 mb-8">We've sent your booking details and confirmation number to your email.</p>
-              <div className="bg-white p-6 rounded-lg shadow-sm text-left w-full max-w-sm space-y-3 mx-auto">
-                <div className="flex justify-between"><span className="text-gray-500">Name</span><span className="font-semibold">{form.name}</span></div>
-                <div className="flex justify-between"><span className="text-gray-500">Check-in</span><span className="font-semibold">{form.checkIn}</span></div>
-                <div className="flex justify-between"><span className="text-gray-500">Room</span><span className="font-semibold text-right max-w-[160px] truncate">{selectedRoom.name}</span></div>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  p-6 rounded-lg shadow-sm text-left w-full max-w-sm space-y-3 mx-auto">
+                <div className="flex justify-between"><span className="text-white/60">Name</span><span className="font-semibold">{form.name}</span></div>
+                <div className="flex justify-between"><span className="text-white/60">Check-in</span><span className="font-semibold">{form.checkIn}</span></div>
+                <div className="flex justify-between"><span className="text-white/60">Room</span><span className="font-semibold text-right max-w-[160px] truncate">{selectedRoom.name}</span></div>
               </div>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <h2 className="text-3xl font-serif text-[#2C2C2C] mb-8">Secure Your Stay</h2>
+              <h2 className="text-3xl font-serif text-white mb-8">Secure Your Stay</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
                 <FloatingInput name="name" label="Full Name" required />
@@ -139,13 +139,13 @@ export function ReservationSystem() {
                     onFocus={() => setFocused("roomType")}
                     onBlur={() => setFocused(null)}
                     className={cn(
-                      "w-full h-[54px] px-[20px] rounded-lg border-2 bg-white text-[16px] transition-all duration-300 outline-none appearance-none cursor-pointer",
+                      "w-full h-[54px] px-[20px] rounded-lg border-2 bg-transparent border border-white/20 text-[16px] transition-all duration-300 outline-none appearance-none cursor-pointer",
                       focused === "roomType" ? "border-gold shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
                     )}
                   >
                     {ROOMS.map(r => <option key={r.id} value={r.id}>{r.name} - ${r.price}</option>)}
                   </select>
-                  <label className="absolute left-[20px] top-0 -translate-y-1/2 text-[12px] font-semibold text-gold bg-white px-1">Room Type</label>
+                  <label className="absolute left-[20px] top-0 -translate-y-1/2 text-[12px] font-semibold text-gold bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  px-1">Room Type</label>
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">▼</div>
                 </div>
 
@@ -156,7 +156,7 @@ export function ReservationSystem() {
                     onFocus={() => setFocused("guests")}
                     onBlur={() => setFocused(null)}
                     className={cn(
-                      "w-full h-[54px] px-[20px] rounded-lg border-2 bg-white text-[16px] transition-all duration-300 outline-none appearance-none cursor-pointer",
+                      "w-full h-[54px] px-[20px] rounded-lg border-2 bg-transparent border border-white/20 text-[16px] transition-all duration-300 outline-none appearance-none cursor-pointer",
                       focused === "guests" ? "border-gold shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
                     )}
                   >
@@ -165,7 +165,7 @@ export function ReservationSystem() {
                     <option value="3">3 Guests</option>
                     <option value="4">4 Guests</option>
                   </select>
-                  <label className="absolute left-[20px] top-0 -translate-y-1/2 text-[12px] font-semibold text-gold bg-white px-1">Guests</label>
+                  <label className="absolute left-[20px] top-0 -translate-y-1/2 text-[12px] font-semibold text-gold bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  px-1">Guests</label>
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">▼</div>
                 </div>
               </div>
@@ -177,17 +177,17 @@ export function ReservationSystem() {
                   onFocus={() => setFocused("requests")}
                   onBlur={() => setFocused(null)}
                   className={cn(
-                    "w-full min-h-[120px] max-h-[200px] p-[20px] rounded-lg border-2 bg-white text-[16px] transition-all duration-300 outline-none resize-y",
+                    "w-full min-h-[120px] max-h-[200px] p-[20px] rounded-lg border-2 bg-transparent border border-white/20 text-[16px] transition-all duration-300 outline-none resize-y",
                     focused === "requests" ? "border-gold shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" : "border-[#E0E0E0]"
                   )}
                 />
                 <label className={cn(
-                  "absolute left-[20px] transition-all duration-300 pointer-events-none bg-white px-1",
-                  focused === "requests" || form.requests ? "top-0 -translate-y-1/2 text-[12px] font-semibold text-gold" : "top-5 text-[14px] text-gray-400"
+                  "absolute left-[20px] transition-all duration-300 pointer-events-none bg-transparent border border-white/20 px-1",
+                  focused === "requests" || form.requests ? "top-0 -translate-y-1/2 text-[12px] font-semibold text-gold" : "top-5 text-[14px] text-white/60"
                 )}>
                   Special Requests (Optional)
                 </label>
-                <div className={cn("absolute bottom-3 right-4 text-xs font-mono transition-colors", form.requests.length >= 200 ? "text-red-500 font-bold" : form.requests.length >= 180 ? "text-orange-500" : "text-gray-400")}>
+                <div className={cn("absolute bottom-3 right-4 text-xs font-mono transition-colors", form.requests.length >= 200 ? "text-red-500 font-bold" : form.requests.length >= 180 ? "text-orange-500" : "text-white/60")}>
                   {form.requests.length}/200
                 </div>
               </div>
@@ -221,7 +221,7 @@ export function ReservationSystem() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
         >
           <div className="bg-[#FAF9F6] border-2 border-gold rounded-xl p-8 sticky top-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-            <h3 className="font-serif text-[24px] text-black border-b border-gray-200 pb-4 mb-6">Booking Summary</h3>
+            <h3 className="font-serif text-[24px] text-black  pb-4 mb-6">Booking Summary</h3>
             
             <AnimatePresence mode="popLayout">
               <motion.img 
@@ -235,26 +235,26 @@ export function ReservationSystem() {
             </AnimatePresence>
 
             <h4 className="font-bold text-lg mb-2">{selectedRoom.name}</h4>
-            <div className="text-sm text-gray-600 space-y-1 mb-6">
+            <div className="text-sm text-white/70 space-y-1 mb-6">
               <p>Check-in: {form.checkIn || "--/--/----"}</p>
               <p>Check-out: {form.checkOut || "--/--/----"}</p>
               <p className="font-medium text-gold">📅 {nights} Night{nights !== 1 ? 's' : ''}</p>
             </div>
 
-            <div className="space-y-3 text-sm border-t border-gray-200 pt-6 mb-6">
+            <div className="space-y-3 text-sm  pt-6 mb-6">
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Rate per night</span>
+                <span className="text-white/70">Rate per night</span>
                 <span className="font-mono">${selectedRoom.price.toFixed(2)}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Subtotal ({nights} nights)</span>
+                <span className="text-white/70">Subtotal ({nights} nights)</span>
                 <span className="font-mono">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Taxes & Fees (18%)</span>
+                <span className="text-white/70">Taxes & Fees (18%)</span>
                 <span className="font-mono">${taxes.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between items-center pt-3 border-t border-gray-200 mt-2">
+              <div className="flex justify-between items-center pt-3  mt-2">
                 <span className="font-black">TOTAL</span>
                 <span className="text-[28px] font-bold text-black group">
                   $<motion.span key={total} initial={{ opacity: 0.5, y: -5 }} animate={{ opacity: 1, y: 0, color: ["#000", "#D4AF37", "#000"] }} transition={{ duration: 0.6 }}>{total.toFixed(2)}</motion.span>
@@ -274,7 +274,7 @@ export function ReservationSystem() {
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ delay: 0.5 + i * 0.15, duration: 0.5 }}
-                   className="flex items-center gap-2 bg-white p-3 rounded-lg text-sm text-gray-700 shadow-sm relative overflow-hidden group"
+                   className="flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  p-3 rounded-lg text-sm text-white/80 shadow-sm relative overflow-hidden group"
                  >
                    <badge.icon size={18} className="text-gold group-hover:scale-125 transition-transform duration-500" />
                    <span className="font-medium">{badge.text}</span>

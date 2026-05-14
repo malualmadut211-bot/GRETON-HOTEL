@@ -12,8 +12,8 @@ const SOCIALS = [
 
 export function SocialLinks() {
   return (
-    <section className="text-center py-20 bg-gradient-to-b from-transparent to-gold/5">
-      <h3 className="text-[32px] text-[#2C2C2C] mb-[10px] font-serif">Connect With Us</h3>
+    <section className="bg-transparent text-center py-20 -">
+      <h3 className="text-[32px] text-white mb-[10px] font-serif">Connect With Us</h3>
       <p className="text-[16px] text-[#6B6B6B] mb-[40px] font-sans">Follow us for exclusive offers and updates</p>
       
       <motion.div 

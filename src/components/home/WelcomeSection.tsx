@@ -26,7 +26,7 @@ export default function WelcomeSection() {
   }, []);
 
   return (
-    <section className="bg-[#FAFAFA] py-[80px] md:py-[120px] px-6 md:px-20 overflow-hidden">
+    <section className="bg-transparent py-[80px] md:py-[120px] px-6 md:px-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
         
         {/* Left Column */}
@@ -39,13 +39,13 @@ export default function WelcomeSection() {
              className="h-[4px] bg-gradient-to-r from-gold to-transparent mb-6"
           />
           <h2 
-            className="about-heading font-serif text-[clamp(2rem,5vw,3rem)] font-bold text-[#1A1A1A] leading-[1.2] mb-6"
+            className="about-heading font-serif text-[clamp(2rem,5vw,3rem)] font-bold text-white leading-[1.2] mb-6"
           >
             Welcome to Greton Hotel
           </h2>
 
           <p 
-            className="about-body font-sans text-[1.125rem] text-[#4A4A4A] leading-[1.8] max-w-[600px] mb-8 font-light"
+            className="about-body font-sans text-[1.125rem] text-white/90 leading-[1.8] max-w-[600px] mb-8 font-light"
           >
             Nestled in the vibrant heart of Nairobi's Central Business District, 
             Greton Hotel seamlessly blends contemporary luxury with authentic Kenyan 
@@ -76,15 +76,8 @@ export default function WelcomeSection() {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, margin: "-20%" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            className="relative aspect-[4/5] rounded-[16px] shadow-[0_20px_60px_rgba(0,0,0,0.12)] bg-gray-200 group overflow-hidden block"
+            className="relative aspect-[4/5] rounded-[16px] group overflow-hidden block"
           >
-            <motion.div
-              className="absolute inset-[8px] border-2 border-gold/20 rounded-[18px] z-20 pointer-events-none"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.5, duration: 1 }}
-            />
             <motion.img 
               initial={{ clipPath: "circle(0% at 50% 50%)", scale: 1.2 }}
               whileInView={{ clipPath: "circle(150% at 50% 50%)", scale: 1 }}
@@ -92,7 +85,7 @@ export default function WelcomeSection() {
               transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1], delay: 1 }}
               src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1500&auto=format&fit=crop"
               alt="Luxury suite detail"
-              className="w-full h-full object-cover transition-all duration-600 ease-out group-hover:scale-[1.03] group-hover:brightness-[1.08] group-hover:contrast-[1.05] cursor-zoom-in"
+              className="w-full h-full object-cover transition-all duration-600 ease-out group-hover:scale-[1.03]"
             />
           </motion.div>
         </div>

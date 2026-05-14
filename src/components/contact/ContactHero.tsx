@@ -14,20 +14,7 @@ export function ContactHero() {
   const yIcons = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <section ref={containerRef} className="relative h-[60vh] min-h-[500px] overflow-hidden bg-black flex items-center justify-center">
-      {/* Background */}
-      <motion.div 
-        style={{ y: yBackground }}
-        className="absolute inset-0 z-0 origin-top"
-      >
-        <img 
-          src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2560" 
-          alt="Hotel Reception" 
-          className="w-full h-full object-cover opacity-80"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-      </motion.div>
-
+    <section ref={containerRef} className="bg-transparent relative h-[60vh] min-h-[500px] overflow-hidden flex items-center justify-center">
       {/* Content */}
       <motion.div 
         style={{ y: yContent, opacity: useTransform(scrollYProgress, [0, 0.5], [1, 0]) }}

@@ -20,7 +20,7 @@ export function BeverageMenu() {
   const items = BEVERAGES[activeTab as keyof typeof BEVERAGES] || [];
 
   return (
-    <section className="bg-[#1A1A1A] py-[120px] px-[20px] lg:px-[80px] border-y border-gold/20 relative overflow-hidden">
+    <section className="bg-transparent bg-transparent py-[120px] px-[20px] lg:px-[80px]  relative overflow-hidden">
       {/* Decorative BG element */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.03] animate-[spin_120s_infinite_linear] pointer-events-none">
         <svg viewBox="0 0 100 100" className="w-full h-full"><path d="M50 10 L60 40 L60 90 L40 90 L40 40 Z" fill="white" /></svg>
@@ -31,7 +31,7 @@ export function BeverageMenu() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="font-serif text-[clamp(2.8rem,6vw,5rem)] text-[#F5F5DC] text-center drop-shadow-[0_4px_20px_rgba(212,175,55,0.4)] mb-16 relative"
+        className="font-serif text-[clamp(2.8rem,6vw,5rem)] text-white/90 text-center drop-shadow-[0_4px_20px_rgba(212,175,55,0.4)] mb-16 relative"
       >
         Liquid Artistry
         <div className="absolute w-[200px] h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent bottom-[-20px] left-1/2 -translate-x-1/2 animate-[shine_2s_infinite]" />
@@ -47,7 +47,7 @@ export function BeverageMenu() {
                onClick={() => setActiveTab(cat)}
                className={cn(
                  "px-[30px] py-[15px] font-sans text-[20px] uppercase tracking-[0.15em] transition-all duration-300 relative shrink-0",
-                 isActive ? "text-gold font-bold" : "text-[#F5F5DC]/60 hover:text-[#F5F5DC] hover:-translate-y-1"
+                 isActive ? "text-gold font-bold" : "text-white/90/60 hover:text-white/90 hover:-translate-y-1"
                )}
              >
                {cat}
@@ -77,7 +77,7 @@ export function BeverageMenu() {
                 exit={{ opacity: 0, scale: 0.9, y: 30, filter: "blur(10px)" }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 whileHover={{ y: -10, scale: 1.03 }}
-                className="bg-white/5 backdrop-blur-[10px] border border-gold/15 rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-400 group cursor-pointer"
+                className="bg-transparent-[10px] border border-gold/15 rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-400 group cursor-pointer"
               >
                 {/* Image / Mask Pour simulation */}
                 <div className="h-[200px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] p-5 relative overflow-hidden">
@@ -99,7 +99,7 @@ export function BeverageMenu() {
 
                 <div className="p-6 bg-gradient-to-b from-transparent to-black/20">
                    <h3 className="font-serif text-[24px] text-gold font-bold mb-3 capitalize tracking-[0.05em] group-hover:text-[#FFD700] transition-colors">{item.name}</h3>
-                   <p className="font-sans text-[15px] text-[#F5F5DC]/80 italic line-clamp-3 group-hover:line-clamp-none transition-all">{item.desc}</p>
+                   <p className="font-sans text-[15px] text-white/90/80 italic line-clamp-3 group-hover:line-clamp-none transition-all">{item.desc}</p>
                    
                    <div className="absolute top-[220px] right-6 font-sans text-[22px] font-bold text-[#FFD700] bg-gold/20 px-4 py-1.5 rounded-full backdrop-blur-sm group-hover:bg-gold/40 shadow-sm group-hover:scale-110 transition-all">
                       ${item.price}

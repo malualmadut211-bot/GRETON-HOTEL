@@ -62,7 +62,7 @@ export function CustomerReviews() {
   };
 
   return (
-    <section className="bg-[linear-gradient(135deg,#F5F5DC_0%,#F0E6D2_100%)] overflow-hidden py-[120px]">
+    <section className="bg-transparent bg-[linear-gradient(135deg,#F5F5DC_0%,#F0E6D2_100%)] overflow-hidden py-[120px]">
       <motion.div 
          initial={{ opacity: 0, y: -30 }}
          whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ export function CustomerReviews() {
               transition={{ duration: 0.7, delay: i * 0.15 }}
               onClick={() => scrollToIndex(i)}
               className={cn(
-                "w-[420px] shrink-0 snap-center bg-white rounded-[20px] p-[40px_35px] relative transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] cursor-pointer group",
+                "w-[420px] shrink-0 snap-center bg-transparent border border-white/20 rounded-[20px] p-[40px_35px] relative transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] cursor-pointer group",
                 isActive ? "scale-105 z-10 opacity-100 shadow-[0_20px_60px_rgba(212,175,55,0.25)] border-2 border-gold/30" 
                          : "scale-95 z-0 opacity-70 shadow-[0_10px_40px_rgba(0,0,0,0.1)] border-2 border-transparent hover:opacity-100 hover:scale-[0.98]"
               )}
@@ -127,7 +127,7 @@ export function CustomerReviews() {
                   <span className="font-bold text-[15px] text-gold">🍽️ {review.dish}</span>
                 </div>
 
-                <div className="flex items-center gap-[15px] pt-4 border-t border-gray-100">
+                <div className="flex items-center gap-[15px] pt-4 ">
                   <div className="w-[50px] h-[50px] rounded-full bg-gradient-to-br from-gold to-[#C19A3A] flex items-center justify-center text-white font-bold text-[20px] shadow-[0_2px_8px_rgba(0,0,0,0.15)] border-2 border-white group-hover:scale-110 transition-transform">
                     {review.name.charAt(0)}
                   </div>

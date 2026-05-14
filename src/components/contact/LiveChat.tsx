@@ -50,7 +50,7 @@ export function LiveChat() {
             animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, scale: 0, y: 50, x: 50 }}
             transition={{ duration: 0.4, ease: [0.68, -0.55, 0.265, 1.55] }} // Back out
-            className="fixed bottom-[120px] right-[30px] w-[380px] h-[550px] bg-white rounded-[16px] shadow-[0_8px_40px_rgba(0,0,0,0.2),0_2px_10px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden z-[999] origin-bottom-right"
+            className="fixed bottom-[120px] right-[30px] w-[380px] h-[550px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  rounded-[16px] shadow-[0_8px_40px_rgba(0,0,0,0.2),0_2px_10px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden z-[999] origin-bottom-right"
           >
             {/* Header */}
             <div className="bg-[linear-gradient(135deg,#D4AF37_0%,#C9A028_100%)] text-white p-5 flex justify-between items-center shrink-0">
@@ -63,7 +63,7 @@ export function LiveChat() {
                    </span>
                  </div>
                </div>
-               <button onClick={() => setIsOpen(false)} className="w-[35px] h-[35px] rounded-full flex items-center justify-center hover:bg-white/20 hover:rotate-90 transition-all text-white">
+               <button onClick={() => setIsOpen(false)} className="w-[35px] h-[35px] rounded-full flex items-center justify-center hover:bg-transparent/20 hover:rotate-90 transition-all text-white">
                  <X size={24} />
                </button>
             </div>
@@ -77,18 +77,18 @@ export function LiveChat() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   className={cn(
                     "max-w-[75%] p-[12px_16px] rounded-[18px] text-[14px] leading-relaxed relative",
-                    msg.sender === "hotel" ? "self-start bg-white text-[#2C2C2C] shadow-[0_2px_8px_rgba(0,0,0,0.08)] rounded-bl-[4px]" : "self-end bg-[linear-gradient(135deg,#D4AF37_0%,#C9A028_100%)] text-white rounded-br-[4px]"
+                    msg.sender === "hotel" ? "self-start bg-transparent border border-white/20 text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] rounded-bl-[4px]" : "self-end bg-[linear-gradient(135deg,#D4AF37_0%,#C9A028_100%)] text-white rounded-br-[4px]"
                   )}
                 >
                   {msg.text}
-                  <span className={cn("absolute bottom-[-18px] text-[11px] text-[#999] whitespace-nowrap", msg.sender === "hotel" ? "left-0" : "right-0")}>
+                  <span className={cn("absolute bottom-[-18px] text-[11px] text-white/60 whitespace-nowrap", msg.sender === "hotel" ? "left-0" : "right-0")}>
                     {msg.time}
                   </span>
                 </motion.div>
               ))}
               
               {isTyping && (
-                <div className="self-start bg-white p-[15px_20px] rounded-[18px] rounded-bl-[4px] shadow-[0_2px_8px_rgba(0,0,0,0.08)] flex gap-[5px] mb-4">
+                <div className="self-start bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  p-[15px_20px] rounded-[18px] rounded-bl-[4px] shadow-[0_2px_8px_rgba(0,0,0,0.08)] flex gap-[5px] mb-4">
                    <div className="w-2 h-2 bg-gold rounded-full animate-[typingDot_1.4s_infinite]" />
                    <div className="w-2 h-2 bg-gold rounded-full animate-[typingDot_1.4s_infinite_0.2s]" />
                    <div className="w-2 h-2 bg-gold rounded-full animate-[typingDot_1.4s_infinite_0.4s]" />
@@ -97,7 +97,7 @@ export function LiveChat() {
             </div>
 
             {/* Input */}
-            <form onSubmit={handleSend} className="p-[15px_20px] bg-white border-t border-[#E0E0E0] flex gap-[10px] shrink-0">
+            <form onSubmit={handleSend} className="p-[15px_20px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white   flex gap-[10px] shrink-0">
                <input 
                  type="text" 
                  value={input}

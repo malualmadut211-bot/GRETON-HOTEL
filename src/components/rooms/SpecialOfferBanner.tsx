@@ -32,20 +32,20 @@ export function SpecialOfferBanner() {
       
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         <div className="flex-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur rounded-full text-[#1A1A1A] text-xs font-sans font-bold uppercase tracking-widest mb-4 animate-[pulse_2s_infinite]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-transparent rounded-full text-white text-xs font-sans font-bold uppercase tracking-widest mb-4 animate-[pulse_2s_infinite]">
             <Clock size={14} /> Limited Time Offer
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif text-[#1A1A1A] mb-3">Stay longer, Save more.</h2>
-          <p className="font-sans text-[#1A1A1A]/80 text-[1rem]">Book 3 nights or more and receive 20% off your entire stay plus complimentary spa access.</p>
+          <h2 className="text-3xl md:text-4xl font-serif text-white mb-3">Stay longer, Save more.</h2>
+          <p className="font-sans text-white/80 text-[1rem]">Book 3 nights or more and receive 20% off your entire stay plus complimentary spa access.</p>
         </div>
 
         <div className="flex flex-col items-center md:items-end gap-4 shrink-0">
-          <div className="text-[#1A1A1A] font-mono text-3xl font-bold tracking-wider tabular-nums bg-white/30 px-6 py-3 rounded-xl backdrop-blur">
+          <div className="text-white font-mono text-3xl font-bold tracking-wider tabular-nums bg-white/30 px-6 py-3 rounded-xl backdrop-blur">
             {formatTime(timeLeft)}
           </div>
           <Link 
             to="/contact?offer=stay-longer" 
-            className="px-8 py-4 bg-[#1A1A1A] text-white font-sans font-semibold uppercase tracking-widest text-sm rounded hover:bg-white hover:text-[#1A1A1A] transition-colors shadow-xl"
+            className="px-8 py-4 bg-transparent text-white font-sans font-semibold uppercase tracking-widest text-sm rounded hover:bg-white/20 hover:text-white transition-colors shadow-xl"
           >
             Claim Offer
           </Link>

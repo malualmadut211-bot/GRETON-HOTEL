@@ -19,7 +19,7 @@ export function NewsletterSignup() {
   };
 
   return (
-    <section className="bg-[#1A1A1A] text-white py-24 relative overflow-hidden">
+    <section className="bg-transparent bg-transparent text-white py-24 relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute w-[600px] h-[600px] border-[1px] border-white rounded-full -top-[300px] -right-[200px]" />
@@ -37,7 +37,7 @@ export function NewsletterSignup() {
             Exclusive Offers
           </div>
           <h2 className="text-[42px] font-serif mb-4 text-[#F5F5F5]">Join the Greton Family</h2>
-          <p className="text-[16px] text-gray-400 mb-10 leading-relaxed max-w-lg mx-auto">
+          <p className="text-[16px] text-white/60 mb-10 leading-relaxed max-w-lg mx-auto">
             Subscribe to our newsletter for access to secret rates, upcoming events, and stories from Nairobi.
           </p>
 
@@ -76,7 +76,7 @@ export function NewsletterSignup() {
              </div>
           </form>
 
-          <p className="mt-4 text-xs text-gray-500">
+          <p className="mt-4 text-xs text-white/60">
             By subscribing, you agree to our Privacy Policy. You can unsubscribe at any time.
           </p>
         </motion.div>

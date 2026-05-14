@@ -7,7 +7,7 @@ export function DiningIntro() {
   const yImage = useTransform(scrollYProgress, [0, 1], ["0px", "-250px"]);
 
   return (
-    <section className="min-h-[700px] flex flex-col lg:flex-row bg-[#FCFBF8] overflow-hidden">
+    <section className="bg-transparent min-h-[700px] flex flex-col lg:flex-row bg-[#FCFBF8] overflow-hidden">
       {/* Left Column - Text */}
       <motion.div 
         style={{ y: yText }}
@@ -101,7 +101,7 @@ export function DiningIntro() {
           </motion.div>
           <div>
             <h4 className="text-[1.3rem] font-bold text-[#3E2723]">Alexandre Dubois</h4>
-            <p className="text-[0.95rem] italic text-gray-500 mb-2">Executive Chef</p>
+            <p className="text-[0.95rem] italic text-white/60 mb-2">Executive Chef</p>
             <div className="font-[Dancing_Script] text-2xl text-[#3E2723]/70 font-script">
               A. Dubois
             </div>
@@ -131,9 +131,9 @@ export function DiningIntro() {
              </p>
           </div>
           {/* Badge */}
-          <div className="absolute top-1/4 right-8 w-24 h-24 bg-white/90 backdrop-blur rounded-full flex flex-col items-center justify-center shadow-2xl border 2 border-gold/50">
+          <div className="absolute top-1/4 right-8 w-24 h-24 bg-transparent rounded-full flex flex-col items-center justify-center shadow-2xl border 2 border-gold/50">
              <span className="text-gold text-2xl">★</span>
-             <span className="text-[10px] uppercase font-bold text-[#1a1a1a] mt-1 text-center leading-tight">Michelin<br/>Starred</span>
+             <span className="text-[10px] uppercase font-bold text-white mt-1 text-center leading-tight">Michelin<br/>Starred</span>
           </div>
         </motion.div>
       </motion.div>

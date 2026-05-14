@@ -25,7 +25,7 @@ export function SignatureDishes() {
   const prev = () => setCurrentIdx(p => (p - 1 + SIGNATURE_DISHES.length) % SIGNATURE_DISHES.length);
 
   return (
-    <section className="bg-[#2C2C2C] text-[#F5F5DC] py-[120px] overflow-hidden">
+    <section className="bg-transparent bg-[#2C2C2C] text-white/90 py-[120px] overflow-hidden">
       <div className="max-w-[1400px] mx-auto text-center mb-20 px-6">
         <motion.h2 
            initial={{ opacity: 0, y: -40, scale: 0.9 }}
@@ -95,7 +95,7 @@ export function SignatureDishes() {
                     >
                       <h3 className="font-serif text-[32px] font-bold text-white drop-shadow-md tracking-[0.02em]">{dish.name}</h3>
                       <p className="font-sans text-[16px] leading-[1.6] text-white/90 max-w-[90%] my-[15px]">{dish.desc}</p>
-                      <button className="w-[160px] h-[48px] bg-transparent border-2 border-gold text-gold font-bold uppercase text-[14px] rounded-full mt-5 hover:bg-gold hover:text-[#2C2C2C] transition-all">Order Now</button>
+                      <button className="w-[160px] h-[48px] bg-transparent border-2 border-gold text-gold font-bold uppercase text-[14px] rounded-full mt-5 hover:bg-gold hover:text-white transition-all">Order Now</button>
                     </motion.div>
                   )}
                 </div>

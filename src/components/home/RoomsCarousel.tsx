@@ -33,7 +33,7 @@ export default function RoomsCarousel() {
   };
 
   return (
-    <section className="bg-[#1A1A1A] py-[120px] overflow-hidden relative">
+    <section className="bg-transparent bg-transparent py-[120px] overflow-hidden relative">
       <div className="max-w-[1600px] mx-auto px-6 md:px-20">
         <motion.div 
           className="text-center mb-16"
@@ -71,12 +71,12 @@ export default function RoomsCarousel() {
                    whileInView={{ x: 0, opacity: 1 }}
                    viewport={{ once: true }}
                    transition={{ delay: 0.3 + idx * 0.1, duration: 0.5, ease: "backOut" }}
-                   className="absolute top-0 right-0 bg-gold/90 text-[#1A1A1A] font-sans font-bold text-[0.75rem] uppercase tracking-widest px-4 py-2 rounded-bl-xl z-20"
+                   className="absolute top-0 right-0 bg-gold/90 text-white font-sans font-bold text-[0.75rem] uppercase tracking-widest px-4 py-2 rounded-bl-xl z-20"
                  >
                    {room.cat}
                  </motion.div>
 
-                 <button onClick={(e) => toggleFavorite(e, idx)} className="absolute top-6 right-8 ml-auto z-20 bg-black/30 backdrop-blur-md rounded-full w-11 h-11 flex items-center justify-center border border-white/20 transition-all hover:scale-110 active:scale-90 left-auto" style={{ right: '2rem', left: 'auto'}}>
+                 <button onClick={(e) => toggleFavorite(e, idx)} className="absolute top-6 right-8 ml-auto z-20 bg-transparent backdrop-blur-md rounded-full w-11 h-11 flex items-center justify-center border border-white/20 transition-all hover:scale-110 active:scale-90 left-auto" style={{ right: '2rem', left: 'auto'}}>
                    <Heart className={cn("w-6 h-6 transition-colors duration-300", favorites.includes(idx) ? "fill-gold text-gold" : "text-white")} />
                  </button>
 
@@ -87,7 +87,7 @@ export default function RoomsCarousel() {
                       <span className="text-gold font-bold text-2xl">${room.price}</span>
                       <span className="text-sm"> /night</span>
                     </p>
-                    <button className="w-full h-12 bg-white/10 backdrop-blur-md border border-white/30 rounded-lg text-white font-sans font-semibold transition-all duration-400 hover:bg-white/20 relative overflow-hidden group/btn">
+                    <button className="w-full h-12 bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  border border-white/30 rounded-lg text-white font-sans font-semibold transition-all duration-400 hover:bg-transparent/20 relative overflow-hidden group/btn">
                       <span className="relative z-10">View Details</span>
                       <div className="absolute inset-0 rounded-lg p-[2px] opacity-0 group-hover/btn:opacity-100 bg-[linear-gradient(90deg,#D4AF37,transparent,#D4AF37)] bg-[length:200%_100%] [mask-image:linear-gradient(#fff_0_0)] [mask-composite:exclude] animate-[rotateBorder_2s_linear_infinite]" />
                     </button>
@@ -100,10 +100,10 @@ export default function RoomsCarousel() {
              ))}
            </div>
            
-           <button onClick={handlePrev} className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-gold/90 hover:scale-110 hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] transition-all z-30">
+           <button onClick={handlePrev} className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white border border-white/20  items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-gold/90 hover:scale-110 hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] transition-all z-30">
              <ChevronLeft />
            </button>
-           <button onClick={handleNext} className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-gold/90 hover:scale-110 hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] transition-all z-30">
+           <button onClick={handleNext} className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white border border-white/20  items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 hover:bg-gold/90 hover:scale-110 hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] transition-all z-30">
              <ChevronRight />
            </button>
         </motion.div>

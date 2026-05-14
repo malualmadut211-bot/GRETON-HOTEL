@@ -34,12 +34,12 @@ export function MenuShowcase() {
   }, []);
 
   return (
-    <section className="bg-white min-h-[800px] relative pb-20">
+    <section className="bg-transparent min-h-[800px] relative pb-20">
       {/* Sticky Tab Navigation */}
       <div id="menu-showcase-nav" className="h-[70px]">
         <div className={cn(
           "w-full flex justify-center transition-all duration-400 z-50",
-           isSticky ? "fixed top-[70px] lg:top-[90px] bg-white/95 backdrop-blur-[10px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-[60px]" : "relative h-[70px]"
+           isSticky ? "fixed top-[70px] lg:top-[90px] bg-transparent-[10px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-[60px]" : "relative h-[70px]"
         )}>
           <div className="flex gap-4 sm:gap-10 h-full overflow-x-auto no-scrollbar px-6 items-center">
             {MENU_CATEGORIES.map(tab => {
@@ -86,7 +86,7 @@ export function MenuShowcase() {
                   exit={{ opacity: 0, scale: 0.95, filter: "blur(5px)" }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
                   whileHover={{ y: -8, scale: 1.02, boxShadow: "0 12px 40px rgba(212,175,55,0.25)" }}
-                  className="bg-[#FAFAFA] border border-[#6D4C41]/10 rounded-xl p-[30px] relative overflow-hidden group transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-white hover:border-gold/40"
+                  className="bg-transparent border border-[#6D4C41]/10 rounded-xl p-[30px] relative overflow-hidden group transition-all duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:bg-white/20 hover:border-gold/40"
                 >
                   {/* Hover bg sweep */}
                   <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.05),transparent)] -translate-x-[100%] group-hover:animate-[shimmerSweep_1.5s_infinite]" />

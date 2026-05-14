@@ -25,13 +25,13 @@ export function FaqAccordion() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section className="max-w-[900px] mx-auto py-[100px] px-[20px]">
+    <section className="bg-transparent max-w-[900px] mx-auto py-[100px] px-[20px]">
       <motion.h2 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center text-[48px] font-serif text-[#2C2C2C] mb-[60px]"
+        className="text-center text-[48px] font-serif text-white mb-[60px]"
       >
         Frequently Asked Questions
       </motion.h2>
@@ -50,7 +50,7 @@ export function FaqAccordion() {
                viewport={{ once: true, margin: "-50px" }}
                transition={{ duration: 0.6, delay: i * 0.1 }}
                className={cn(
-                 "bg-white border rounded-[12px] overflow-hidden transition-all duration-300",
+                 "bg-transparent border border-white/20 border rounded-[12px] overflow-hidden transition-all duration-300",
                  isOpen ? "border-gold shadow-[0_4px_20px_rgba(0,0,0,0.08),inset_3px_0_0_#D4AF37] bg-[linear-gradient(to_right,rgba(212,175,55,0.05),white)]" : "border-[#E0E0E0] hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:border-gold/30"
                )}
              >
@@ -58,7 +58,7 @@ export function FaqAccordion() {
                  className="flex justify-between items-center p-[24px_30px] cursor-pointer select-none group"
                  onClick={() => setOpenIdx(isOpen ? null : i)}
                >
-                 <h3 className={cn("text-[18px] font-semibold transition-colors duration-300", isOpen ? "text-gold" : "text-[#2C2C2C] group-hover:text-gold")}>
+                 <h3 className={cn("text-[18px] font-semibold transition-colors duration-300", isOpen ? "text-gold" : "text-white group-hover:text-gold")}>
                    {faq.q}
                  </h3>
                  <div className={cn(

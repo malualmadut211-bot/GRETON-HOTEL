@@ -40,7 +40,7 @@ export default function StatsLocation() {
 
   return (
     <>
-      <section className="bg-charcoal py-20 relative overflow-hidden">
+      <section className="bg-transparent py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent" />
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center px-6 md:px-0">
           
@@ -90,7 +90,7 @@ export default function StatsLocation() {
       </section>
 
       {/* Location Highlight */}
-      <section className="bg-white py-[80px] md:py-[120px] px-6 md:px-20 overflow-hidden relative">
+      <section className="bg-transparent py-[80px] md:py-[120px] px-6 md:px-20 overflow-hidden relative">
         <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row shadow-[0_0_32px_rgba(0,0,0,0.08)] rounded-[16px]">
           
           <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: "-20%" }} transition={{ duration: 1, ease: "easeOut" }} className="w-full md:w-1/2 h-[400px] md:h-[600px] relative overflow-hidden rounded-t-[16px] md:rounded-tr-none md:rounded-l-[16px]">
@@ -108,8 +108,8 @@ export default function StatsLocation() {
             />
           </motion.div>
 
-          <motion.div initial={{ x: 100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: "-20%" }} transition={{ duration: 1, ease: "easeOut" }} className="w-full md:w-1/2 p-[40px] md:p-[60px] md:pr-[80px] flex flex-col justify-center bg-white rounded-b-[16px] md:rounded-bl-none md:rounded-r-[16px]">
-            <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }} className="font-serif text-[2.5rem] font-bold text-[#1A1A1A] leading-[1.2] mb-8">
+          <motion.div initial={{ x: 100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: "-20%" }} transition={{ duration: 1, ease: "easeOut" }} className="w-full md:w-1/2 p-[40px] md:p-[60px] md:pr-[80px] flex flex-col justify-center bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] text-white  rounded-b-[16px] md:rounded-bl-none md:rounded-r-[16px]">
+            <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }} className="font-serif text-[2.5rem] font-bold text-white leading-[1.2] mb-8">
               Perfectly Positioned in Nairobi's Heart
             </motion.h2>
 
@@ -120,8 +120,8 @@ export default function StatsLocation() {
                     {attr.icon}
                   </motion.div>
                   <div>
-                    <h4 className="font-sans text-[1.125rem] font-semibold text-[#1A1A1A] mb-1 group-hover:text-gold transition-colors">{attr.title}</h4>
-                    <p className="font-sans text-[0.9375rem] text-[#666666]">{attr.dist}</p>
+                    <h4 className="font-sans text-[1.125rem] font-semibold text-white mb-1 group-hover:text-gold transition-colors">{attr.title}</h4>
+                    <p className="font-sans text-[0.9375rem] text-white/80">{attr.dist}</p>
                   </div>
                 </motion.li>
               ))}
