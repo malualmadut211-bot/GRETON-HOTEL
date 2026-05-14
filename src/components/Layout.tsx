@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import { Menu, X, Phone, MapPin, Mail, Instagram, Facebook, Twitter, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { animate, createDrawable, stagger, onScroll as animeOnScroll } from "animejs";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -370,6 +371,18 @@ function BackToTopButton() {
 }
 
 export function Layout({ children }: { children: ReactNode }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    // animate all paths sequentially dynamically
+    animate(createDrawable('path'), {
+      draw: ['0 0', '0 1', '1 1'],
+      delay: stagger(40),
+      ease: 'inOut(3)',
+      autoplay: animeOnScroll({ sync: true }),
+    });
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollProgress />
