@@ -10,13 +10,18 @@ import Rooms from "./pages/Rooms";
 import Contact from "./pages/Contact";
 import Dining from "./pages/Dining";
 import Amenities from "./pages/Amenities";
-import { BackgroundVideo } from "./components/common/BackgroundVideo";
+import BackgroundVideo from "./components/BackgroundVideo";
 
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Global Fullscreen Background Video System */}
-      <BackgroundVideo />
+      {/* Global Fullscreen Background Video - Throttled Seeking + Parallax */}
+      <BackgroundVideo 
+        // Note: The Drive link provided is not a direct HLS manifest. 
+        // Using a high-quality Mux HLS stream URL for demonstration.
+        // Replace with your actual .m3u8 link if needed.
+        src="https://stream.mux.com/v69v9979OI025y8mD8u4Cw8Hcl6ZfgpG2.m3u8" 
+      />
 
       <Layout>
         <Routes>
