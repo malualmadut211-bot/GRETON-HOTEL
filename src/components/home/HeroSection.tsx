@@ -1,37 +1,23 @@
 import React, { useEffect } from "react";
-import { gsap } from "gsap";
+import { animate, onScroll, createTimeline } from 'animejs';
 import { ChevronDown, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // a) Headline fade in and slightly up
-      gsap.from(".hero-title", {
-        opacity: 0,
-        y: 40,
-        duration: 1.2,
-        ease: "power3.out",
-        delay: 0.2
-      });
-
-      // b) Subtitle + CTA button fade up on load
-      const tl = gsap.timeline({ delay: 0.5 });
-      tl.to(".hero-subtitle", { 
-        opacity: 1, 
-        y: 0, 
-        duration: 1, 
-        ease: "power2.out" 
-      })
-      .to(".hero-cta", { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.8, 
-        ease: "back.out(1.7)" 
-      }, "-=0.6");
+    // a) Headline scramble text on load
+    animate('.hero-title', {
+      scrambleText: {
+        text: 'Where Luxury Meets Comfort',
+        chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        duration: 2000,
+      }
     });
 
-    return () => ctx.revert();
+    // b) Subtitle + CTA button fade up on load
+    createTimeline()
+      .add('.hero-subtitle', { opacity: [0, 1], y: [30, 0], duration: 800 })
+      .add('.hero-cta', { opacity: [0, 1], y: [20, 0], duration: 600 }, '-=400');
   }, []);
 
   return (

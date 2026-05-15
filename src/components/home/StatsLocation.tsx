@@ -1,42 +1,32 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "motion/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Star, MessageSquare, MapPin, Award } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { cn } from "@/lib/utils";
 
 function StatCounter({ target, duration = 1.5 }: { target: number, duration?: number }) {
   const [count, setCount] = useState(0);
-  const countRef = useRef({ val: 0 });
-  const displayRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (!displayRef.current) return;
-
-    const anim = gsap.to(countRef.current, {
-      val: target,
-      duration: duration,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: displayRef.current,
-        start: "top 90%",
-        once: true
-      },
-      onUpdate: () => {
-        setCount(Math.round(countRef.current.val));
-      }
-    });
-
-    return () => {
-      anim.kill();
-    };
-  }, [target, duration]);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
-    <span ref={displayRef}>
+    <motion.span
+      onViewportEnter={() => {
+        if (hasAnimated) return;
+        setHasAnimated(true);
+        let start = 0;
+        const increment = target / (duration * 60);
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= target) {
+            setCount(target);
+            clearInterval(timer);
+          } else {
+            setCount(Math.floor(start));
+          }
+        }, 16);
+      }}
+    >
       {count}
-    </span>
+    </motion.span>
   );
 }
 

@@ -1,9 +1,8 @@
-import React, { ReactNode, useState, useEffect, useRef } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import { Menu, X, Phone, MapPin, Mail, Instagram, Facebook, Twitter, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { gsap, useGSAP, ScrollSmoother, ScrollTrigger } from "@/lib/gsap-setup";
 
 const NAV_LINKS = [
   { name: "Home", path: "/" },
@@ -29,15 +28,7 @@ function Navbar() {
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    // window.scrollTo(0, 0); // Scroll to top on navigation - ScrollSmoother handles this or we use ScrollTo
-    const smoother = ScrollSmoother.get();
-    if (smoother) {
-      smoother.scrollTop(0);
-      // Ensure ScrollTrigger recalibrates for new page content height
-      ScrollTrigger.refresh();
-    } else {
-      window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0); // Scroll to top on navigation
   }, [location.pathname]);
 
   return (
@@ -351,12 +342,7 @@ function BackToTopButton() {
   }, []);
 
   const scrollToTop = () => {
-    const smoother = ScrollSmoother.get();
-    if (smoother) {
-      smoother.scrollTo(0, true);
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -384,33 +370,12 @@ function BackToTopButton() {
 }
 
 export function Layout({ children }: { children: ReactNode }) {
-  const mainRef = useRef<HTMLDivElement>(null);
-  const smootherRef = useRef<any>(null);
-
-  useGSAP(() => {
-    smootherRef.current = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.5, // How long it takes in seconds to catch up to the scroll position
-      effects: true, // Look for data-speed and data-lag attributes
-      smoothTouch: 0.1, // Smooth scrolling on touch devices
-    });
-
-    return () => {
-      if (smootherRef.current) {
-        smootherRef.current.kill();
-      }
-    };
-  }, { scope: mainRef });
-
   return (
-    <div ref={mainRef} className="min-h-screen flex flex-col" id="smooth-wrapper">
+    <div className="min-h-screen flex flex-col">
       <ScrollProgress />
       <Navbar />
-      <main className="flex-1" id="smooth-content">
-        {children}
-        <Footer />
-      </main>
+      <main className="flex-1">{children}</main>
+      <Footer />
       <BackToTopButton />
       <FloatingBookButton />
     </div>
