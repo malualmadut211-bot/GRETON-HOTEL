@@ -10,19 +10,13 @@ import Rooms from "./pages/Rooms";
 import Contact from "./pages/Contact";
 import Dining from "./pages/Dining";
 import Amenities from "./pages/Amenities";
+import { BackgroundVideo } from "./components/common/BackgroundVideo";
 
 export default function App() {
   return (
     <BrowserRouter>
-      {/* Global Fullscreen Background */}
-      <div className="fixed inset-0 w-full h-full pointer-events-none z-[-50]">
-        <img 
-          src="https://raw.githubusercontent.com/malualmadut211-bot/ai-studio-media/11a77858f8206ead3a9e5d402f53024af0663a4c/pexels-larry-penaloza-311813562-13549224.jpg" 
-          alt="Hotel Background" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+      {/* Global Fullscreen Background Video System */}
+      <BackgroundVideo />
 
       <Layout>
         <Routes>
